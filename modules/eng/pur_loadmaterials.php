@@ -1,7 +1,7 @@
 <?php
 include('../../classes/inc/dbCon.php');
 
-	session_start();;
+	session_start();
 
 	echo '<form action = "" method = "GET">';
 echo '<table class="table table-striped header-fixed table-bordered table-hover table-info " id ="" cellspacing="0" style= "width:100%;table-layout: fixed;margin-bottom: -15px;overflow-y: auto; height: 100px;">';

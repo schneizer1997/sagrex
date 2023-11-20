@@ -2,7 +2,7 @@
 include('../../classes/inc/dbCon.php');
 //Load Request Form
 	global $db;
-	ss
+
 	$sql = "SELECT  *FROM tblrequestform WHERE MWRFStatus = 'PENDING' AND isdelete = 1 ORDER BY MWRFID DESC";
 	$result=$db->query ($sql);
 	$c=1;

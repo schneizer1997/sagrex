@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="purchase_order_subreport" language="groovy" pageWidth="802" pageHeight="555" orientation="Landscape" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2282b776-6976-475d-86db-1b026f755395">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="po_no" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tblpo_items.`id` AS tblpo_items_id,
+     tblpo_items.`po_id` AS tblpo_items_po_id,
+     tblpo_items.`po_no` AS tblpo_items_po_no,
+     tblpo_items.`po_qty` AS tblpo_items_po_qty,
+     tblpo_items.`po_unit` AS tblpo_items_po_unit,
+     tblpo_items.`po_desc` AS tblpo_items_po_desc,
+     tblpo_items.`po_up` AS tblpo_items_po_up,
+     tblpo_items.`po_amount` AS tblpo_items_po_amount,
+     tblpo_items.`date_modified` AS tblpo_items_date_modified,
+     tblpo_items.`status` AS tblpo_items_status
+FROM
+     `tblpo_items` tblpo_items where tblpo_items.`po_no` = $P{po_no} and tblpo_items.`status` = 1]]>
+	</queryString>
+	<field name="tblpo_items_id" class="java.lang.Integer"/>
+	<field name="tblpo_items_po_id" class="java.lang.Integer"/>
+	<field name="tblpo_items_po_no" class="java.lang.String"/>
+	<field name="tblpo_items_po_qty" class="java.lang.Integer"/>
+	<field name="tblpo_items_po_unit" class="java.lang.String"/>
+	<field name="tblpo_items_po_desc" class="java.lang.String"/>
+	<field name="tblpo_items_po_up" class="java.lang.Double"/>
+	<field name="tblpo_items_po_amount" class="java.lang.Double"/>
+	<field name="tblpo_items_date_modified" class="java.sql.Date"/>
+	<field name="tblpo_items_status" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="31" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="6" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="6" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="b4fe9bae-1c45-49de-985b-743f74d276ed"/>
+				<textFieldExpression><![CDATA[$F{tblpo_items_po_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="c3d73a91-c4d6-44ba-bd85-4bdfab7e5b53"/>
+				<textFieldExpression><![CDATA[$F{tblpo_items_po_unit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="145" height="20" uuid="deec997d-da3d-4d93-861b-b51849400924"/>
+				<textFieldExpression><![CDATA[$F{tblpo_items_po_desc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="345" y="0" width="235" height="20" uuid="77423a65-fae2-4a17-bc01-011efaf82fb5"/>
+				<textFieldExpression><![CDATA[$F{tblpo_items_po_up}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="580" y="0" width="222" height="20" uuid="2dae1aee-c50b-4b14-a30d-55f3b1033f2e"/>
+				<textFieldExpression><![CDATA[$F{tblpo_items_po_amount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="3" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="2" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

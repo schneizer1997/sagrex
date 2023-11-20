@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="try" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="82fce708-5212-4315-90db-50f87eba2622">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="New Dataset 1" uuid="ef038845-27c2-4318-96db-525893215636">
+		<parameter name="parameter1" class="java.lang.Integer"/>
+		<queryString language="SQL">
+			<![CDATA[SELECT
+     plates.`plate_id` AS plates_plate_id,
+     plates.`plate_no` AS plates_plate_no,
+     plates.`status` AS plates_status
+FROM
+     `plates` plates]]>
+		</queryString>
+		<field name="plates_plate_id" class="java.lang.Integer"/>
+		<field name="plates_plate_no" class="java.lang.String"/>
+		<field name="plates_status" class="java.lang.Integer"/>
+		<group name="plates_plate_id">
+			<groupExpression><![CDATA[$F{plates_plate_id}]]></groupExpression>
+		</group>
+	</subDataset>
+	<parameter name="plateid" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     plates.`plate_id` AS plates_plate_id,
+     plates.`plate_no` AS plates_plate_no,
+     plates.`status` AS plates_status
+FROM
+     `plates` plates
+WHERE
+plates_plate_id  = $P{plateid}]]>
+	</queryString>
+	<field name="plates_plate_id" class="java.lang.Integer"/>
+	<field name="plates_plate_no" class="java.lang.String"/>
+	<field name="plates_status" class="java.lang.Integer"/>
+	<group name="plates_plate_id">
+		<groupExpression><![CDATA[$F{plates_plate_id}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="31" y="2" width="100" height="20" uuid="c6540bbe-5f47-44f4-9d8d-d70b86b21ddd"/>
+				<text><![CDATA[plates_plate_id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="2" width="100" height="20" uuid="fcd68d66-28c4-4232-803d-2b30e97dcf10"/>
+				<text><![CDATA[plates_plate_no]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="344" y="2" width="100" height="20" uuid="5ad02aba-77c8-47a9-939c-e54b41b5026e"/>
+				<text><![CDATA[plates_status]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="31" y="21" width="100" height="20" uuid="be9bddad-8c44-48b3-b30c-943f7a73610d"/>
+				<textFieldExpression><![CDATA[$F{plates_plate_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="183" y="24" width="100" height="20" uuid="05ec7cb3-89b7-4b47-8902-43dee40f9a72"/>
+				<textFieldExpression><![CDATA[$F{plates_plate_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="344" y="42" width="100" height="20" uuid="14e03730-7a5a-44d0-88d9-9d5dec63555b"/>
+				<textFieldExpression><![CDATA[$F{plates_status}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

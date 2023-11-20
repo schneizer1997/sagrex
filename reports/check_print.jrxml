@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="check_print" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5d081572-e884-474d-9e23-67befa9293ae">
+	<property name="ireport.zoom" value="0.9090909090909091"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="checkid" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     cheq_info.`cheq_id` AS cheq_info_cheq_id,
+     cheq_info.`cheq_no` AS cheq_info_cheq_no,
+     CONCAT('***',cheq_info.`pay_to`,'***') AS cheq_info_pay_to,
+     cheq_info.`amount` AS cheq_info_amount,
+     cheq_info.`amount_words` AS cheq_info_amount_words,
+     date_format(cheq_info.`trans_date`, '%M %e, %Y') AS cheq_info_trans_date,
+     cheq_info.`date_modified` AS cheq_info_date_modified,
+     cheq_info.`isdelete` AS cheq_info_isdelete
+FROM
+     `cheq_info` cheq_info
+WHERE cheq_info.`cheq_id` = $P{checkid}]]>
+	</queryString>
+	<field name="cheq_info_cheq_id" class="java.lang.Integer"/>
+	<field name="cheq_info_cheq_no" class="java.lang.String"/>
+	<field name="cheq_info_pay_to" class="java.lang.String"/>
+	<field name="cheq_info_amount" class="java.lang.Double"/>
+	<field name="cheq_info_amount_words" class="java.lang.String"/>
+	<field name="cheq_info_trans_date" class="java.lang.String"/>
+	<field name="cheq_info_date_modified" class="java.sql.Date"/>
+	<field name="cheq_info_isdelete" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="7" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="80" splitType="Stretch">
+			<textField>
+				<reportElement x="61" y="34" width="355" height="20" uuid="599081b3-fc99-4c7e-aa39-3b73d20ccf1e"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cheq_info_pay_to}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="34" y="55" width="382" height="20" uuid="abfa3840-d4bb-4c3b-81c0-402d8e28598c"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cheq_info_amount_words}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="416" y="31" width="100" height="20" uuid="8d36f861-4e2f-4a84-9880-c196c0b0bb10"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cheq_info_amount}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="410" y="11" width="100" height="20" uuid="79c0f06a-c789-4f30-9ec9-4e3ad3e66200"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cheq_info_trans_date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="8" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="9" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="13" splitType="Stretch"/>
+	</summary>
+</jasperReport>

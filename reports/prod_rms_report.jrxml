@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="prod_rms_report" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="44a956f8-22b4-462a-9d50-a5df4f929359">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="datefrom" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dateto" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="designation" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="datefromrange" class="java.lang.String"/>
+	<parameter name="datetorange" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     prod_rms_info.`prod_rms_info_id` AS prod_rms_info_prod_rms_info_id,
+     prod_rms_info.`designation` AS prod_rms_info_designation,
+     prod_rms_info.`repair_type` AS prod_rms_info_repair_type,
+     prod_rms_info.`descr` AS prod_rms_info_descr,
+     prod_rms_info.`brand` AS prod_rms_info_brand,
+     prod_rms_info.`purpose` AS prod_rms_info_purpose,
+     prod_rms_info.`qty` AS prod_rms_info_qty,
+     prod_rms_info.`unit` AS prod_rms_info_unit,
+     prod_rms_info.`price` AS prod_rms_info_price,
+     prod_rms_info.`amount` AS prod_rms_info_amount,
+     prod_rms_info.`supp_name` AS prod_rms_info_supp_name,
+     prod_rms_info.`supp_addr` AS prod_rms_info_supp_addr,
+     prod_rms_info.`rf_no` AS prod_rms_info_rf_no,
+     prod_rms_info.`rf_date` AS prod_rms_info_rf_date,
+     prod_rms_info.`po_no` AS prod_rms_info_po_no,
+     prod_rms_info.`po_date` AS prod_rms_info_po_date,
+     prod_rms_info.`req_by` AS prod_rms_info_req_by,
+     prod_rms_info.`ref_no` AS prod_rms_info_ref_no,
+     prod_rms_info.`ref_date` AS prod_rms_info_ref_date,
+     prod_rms_info.`cvjv_no` AS prod_rms_info_cvjv_no,
+     prod_rms_info.`pjd_no` AS prod_rms_info_pjd_no,
+     prod_rms_info.`other_ref` AS prod_rms_info_other_ref,
+     prod_rms_info.`remarks` AS prod_rms_info_remarks,
+     prod_rms_info.`status` AS prod_rms_info_status
+FROM
+     `prod_rms_info` prod_rms_info WHERE prod_rms_info.`designation` LIKE $P{designation} AND prod_rms_info.`ref_date` BETWEEN  $P{datefrom} AND $P{dateto} ORDER BY prod_rms_info.`designation`]]>
+	</queryString>
+	<field name="prod_rms_info_prod_rms_info_id" class="java.lang.Integer"/>
+	<field name="prod_rms_info_designation" class="java.lang.String"/>
+	<field name="prod_rms_info_repair_type" class="java.lang.String"/>
+	<field name="prod_rms_info_descr" class="java.lang.String"/>
+	<field name="prod_rms_info_brand" class="java.lang.String"/>
+	<field name="prod_rms_info_purpose" class="java.lang.String"/>
+	<field name="prod_rms_info_qty" class="java.lang.Integer"/>
+	<field name="prod_rms_info_unit" class="java.lang.String"/>
+	<field name="prod_rms_info_price" class="java.lang.Double"/>
+	<field name="prod_rms_info_amount" class="java.lang.Double"/>
+	<field name="prod_rms_info_supp_name" class="java.lang.String"/>
+	<field name="prod_rms_info_supp_addr" class="java.lang.String"/>
+	<field name="prod_rms_info_rf_no" class="java.lang.String"/>
+	<field name="prod_rms_info_rf_date" class="java.sql.Date"/>
+	<field name="prod_rms_info_po_no" class="java.lang.String"/>
+	<field name="prod_rms_info_po_date" class="java.sql.Date"/>
+	<field name="prod_rms_info_req_by" class="java.lang.String"/>
+	<field name="prod_rms_info_ref_no" class="java.lang.String"/>
+	<field name="prod_rms_info_ref_date" class="java.sql.Date"/>
+	<field name="prod_rms_info_cvjv_no" class="java.lang.String"/>
+	<field name="prod_rms_info_pjd_no" class="java.lang.String"/>
+	<field name="prod_rms_info_other_ref" class="java.lang.String"/>
+	<field name="prod_rms_info_remarks" class="java.lang.String"/>
+	<field name="prod_rms_info_status" class="java.lang.Integer"/>
+	<variable name="prod_rms_info_amount_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{prod_rms_info_amount}]]></variableExpression>
+	</variable>
+	<group name="groupbydesignation">
+		<groupExpression><![CDATA[$F{prod_rms_info_designation}]]></groupExpression>
+		<groupHeader>
+			<band height="15">
+				<textField>
+					<reportElement x="0" y="0" width="78" height="15" uuid="866b2744-bf58-4b9a-b97c-059c0a474501"/>
+					<textFieldExpression><![CDATA[$F{prod_rms_info_designation}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="2"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="22" width="752" height="35" uuid="edc76f51-8580-41bd-8721-d4afb710dad6"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPAIRS AND MAINTENANCE]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="73" y="15" width="100" height="20" uuid="83faff06-bffb-41d4-b1a3-bca05c58266b"/>
+				<textFieldExpression><![CDATA[$P{datetorange}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="57" y="13" width="16" height="20" uuid="7486fd4b-10cb-4976-96b2-1e9ca70f2d06"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="15" width="57" height="20" uuid="fed79ed0-a246-4a21-9293-49ba0b8cdb9c"/>
+				<textFieldExpression><![CDATA[$P{datefromrange}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="78" height="15" uuid="d5b82a09-26c2-4a72-9305-bb37bc6f0b7f"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPAIR TYPE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="78" y="2" width="81" height="15" uuid="c09c3d17-b481-4d87-86ea-84d7bb735a37"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCRIPTION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="159" y="2" width="75" height="15" uuid="b4f9bce4-cead-4dc7-a898-5b84a6495693"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BRAND]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="234" y="2" width="87" height="15" uuid="c65f8ad4-c6cc-47bb-9f88-69c5e0ae7c72"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PURPOSE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="321" y="2" width="41" height="15" uuid="4cdeb332-9838-4570-931e-533756d25906"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[QTY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="362" y="2" width="33" height="15" uuid="419c92b2-ba8a-4c3e-bcd7-8790a44b6b24"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="395" y="2" width="70" height="15" uuid="e3e288ba-31ac-46c0-861d-13d6f2a67c93"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRICE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="465" y="2" width="70" height="15" uuid="1860a578-b0ab-4cbc-8fa3-1c71c1b291bc"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AMOUNT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="635" y="2" width="100" height="15" uuid="1d4f17b6-aa0a-4f6f-a743-d32ce2c1dc6b"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ADDRESS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="535" y="2" width="100" height="15" uuid="eaac2fc4-e74f-4b64-a74c-c8405d5f77a9"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUPPLIER]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="78" height="20" uuid="134d439c-a51d-4b2a-8eeb-2a330a893147"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prod_rms_info_repair_type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="78" y="0" width="81" height="20" uuid="ce1556dc-6168-43fd-8d4f-6c7e1d98c198"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prod_rms_info_descr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="159" y="0" width="75" height="20" uuid="dc5d1f3b-dc69-422d-9a18-0f479c05ede8"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prod_rms_info_brand}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="234" y="0" width="87" height="20" uuid="380d8263-a666-4606-9824-c7cb71fb754f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prod_rms_info_purpose}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="321" y="0" width="41" height="20" uuid="205e50a1-7dc2-472c-85cf-146f110ff21f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prod_rms_info_qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="362" y="0" width="33" height="20" uuid="c31b5855-7b5d-4999-b064-42a4130e6fe5"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prod_rms_info_unit}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="395" y="0" width="70" height="20" uuid="9966313e-b037-4efa-a035-65b6cf39ffd6"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prod_rms_info_price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="535" y="0" width="100" height="20" uuid="4efae9eb-7e40-4a37-aecb-742288b33e6a"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prod_rms_info_supp_name}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="465" y="0" width="70" height="20" uuid="4f35fe6b-f467-47ef-9303-fe2011f60e66"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prod_rms_info_amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="635" y="0" width="100" height="20" uuid="514b24fb-49c9-4adf-be03-fab8c9e90f1d"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prod_rms_info_supp_addr}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="752" height="20" uuid="1d5a64be-50a2-4559-a514-6714fa771504"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField pattern="#,##0.00">
+				<reportElement x="635" y="0" width="100" height="20" forecolor="#CC0000" uuid="1eb2504f-25ac-4a71-9dfc-e8f68af17345"/>
+				<textFieldExpression><![CDATA[$V{prod_rms_info_amount_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="535" y="0" width="100" height="20" uuid="c4dafa50-2ebc-4f67-aae4-c6051941d1be"/>
+				<text><![CDATA[GRAND TOTAL:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

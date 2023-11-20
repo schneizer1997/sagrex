@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="office_warehouse_report" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="97a19aec-e93b-4c01-aad1-feaeaa10dca1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="82"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="datefrom" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dateto" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="designation" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="datefromrange" class="java.lang.String"/>
+	<parameter name="datetorange" class="java.lang.String"/>
+	<parameter name="category" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     officeandwarehouse_info.`oaw_info_id` AS officeandwarehouse_info_oaw_info_id,
+     officeandwarehouse_info.`designation` AS officeandwarehouse_info_designation,
+     officeandwarehouse_info.`category` AS officeandwarehouse_info_category,
+     officeandwarehouse_info.`item_name` AS officeandwarehouse_info_item_name,
+     officeandwarehouse_info.`descr` AS officeandwarehouse_info_descr,
+     officeandwarehouse_info.`brand` AS officeandwarehouse_info_brand,
+     officeandwarehouse_info.`purpose` AS officeandwarehouse_info_purpose,
+     officeandwarehouse_info.`qty` AS officeandwarehouse_info_qty,
+     officeandwarehouse_info.`unit` AS officeandwarehouse_info_unit,
+     officeandwarehouse_info.`price` AS officeandwarehouse_info_price,
+     officeandwarehouse_info.`amount` AS officeandwarehouse_info_amount,
+     officeandwarehouse_info.`supp_name` AS officeandwarehouse_info_supp_name,
+     officeandwarehouse_info.`supp_addr` AS officeandwarehouse_info_supp_addr,
+     officeandwarehouse_info.`rf_no` AS officeandwarehouse_info_rf_no,
+     officeandwarehouse_info.`rf_date` AS officeandwarehouse_info_rf_date,
+     officeandwarehouse_info.`po_no` AS officeandwarehouse_info_po_no,
+     officeandwarehouse_info.`po_date` AS officeandwarehouse_info_po_date,
+     officeandwarehouse_info.`req_by` AS officeandwarehouse_info_req_by,
+     officeandwarehouse_info.`ref_no` AS officeandwarehouse_info_ref_no,
+     officeandwarehouse_info.`ref_date` AS officeandwarehouse_info_ref_date,
+     officeandwarehouse_info.`cvjv_no` AS officeandwarehouse_info_cvjv_no,
+     officeandwarehouse_info.`pjd_no` AS officeandwarehouse_info_pjd_no,
+     officeandwarehouse_info.`other_ref` AS officeandwarehouse_info_other_ref,
+     officeandwarehouse_info.`remarks` AS officeandwarehouse_info_remarks,
+     officeandwarehouse_info.`status` AS officeandwarehouse_info_status
+FROM
+     `officeandwarehouse_info` officeandwarehouse_info
+WHERE officeandwarehouse_info.`designation` = $P{designation} AND officeandwarehouse_info.`ref_date` BETWEEN $P{datefrom} AND $P{dateto}]]>
+	</queryString>
+	<field name="officeandwarehouse_info_oaw_info_id" class="java.lang.Integer"/>
+	<field name="officeandwarehouse_info_designation" class="java.lang.String"/>
+	<field name="officeandwarehouse_info_category" class="java.lang.String"/>
+	<field name="officeandwarehouse_info_item_name" class="java.lang.String"/>
+	<field name="officeandwarehouse_info_descr" class="java.lang.String"/>
+	<field name="officeandwarehouse_info_brand" class="java.lang.String"/>
+	<field name="officeandwarehouse_info_purpose" class="java.lang.String"/>
+	<field name="officeandwarehouse_info_qty" class="java.lang.Integer"/>
+	<field name="officeandwarehouse_info_unit" class="java.lang.String"/>
+	<field name="officeandwarehouse_info_price" class="java.lang.Double"/>
+	<field name="officeandwarehouse_info_amount" class="java.lang.Double"/>
+	<field name="officeandwarehouse_info_supp_name" class="java.lang.String"/>
+	<field name="officeandwarehouse_info_supp_addr" class="java.lang.String"/>
+	<field name="officeandwarehouse_info_rf_no" class="java.lang.String"/>
+	<field name="officeandwarehouse_info_rf_date" class="java.sql.Date"/>
+	<field name="officeandwarehouse_info_po_no" class="java.lang.String"/>
+	<field name="officeandwarehouse_info_po_date" class="java.sql.Date"/>
+	<field name="officeandwarehouse_info_req_by" class="java.lang.String"/>
+	<field name="officeandwarehouse_info_ref_no" class="java.lang.String"/>
+	<field name="officeandwarehouse_info_ref_date" class="java.sql.Date"/>
+	<field name="officeandwarehouse_info_cvjv_no" class="java.lang.String"/>
+	<field name="officeandwarehouse_info_pjd_no" class="java.lang.String"/>
+	<field name="officeandwarehouse_info_other_ref" class="java.lang.String"/>
+	<field name="officeandwarehouse_info_remarks" class="java.lang.String"/>
+	<field name="officeandwarehouse_info_status" class="java.lang.Integer"/>
+	<variable name="officeandwarehouse_info_amount_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{officeandwarehouse_info_amount}]]></variableExpression>
+	</variable>
+	<group name="groupbydesignation">
+		<groupExpression><![CDATA[$F{officeandwarehouse_info_designation}]]></groupExpression>
+		<groupHeader>
+			<band height="19">
+				<textField>
+					<reportElement x="0" y="0" width="100" height="18" uuid="696596b6-0eb6-4aad-8e60-03f64ffaf4eb"/>
+					<textElement>
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{officeandwarehouse_info_designation}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="3"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="22" width="752" height="42" uuid="36ecffdd-85b4-4e91-bdd5-8fe1dda96860"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUPPLIES]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="10" width="68" height="20" uuid="81863e86-98d4-4aca-8346-e7d095505592"/>
+				<textFieldExpression><![CDATA[$P{datefromrange}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="85" y="10" width="100" height="20" uuid="f75d3400-c9c1-42d1-8330-07843ce381ea"/>
+				<textFieldExpression><![CDATA[$P{datetorange}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="69" y="8" width="16" height="20" uuid="b5de5ec5-eb3d-42f4-82bd-de62361fbf50"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="69" height="18" uuid="14fa69df-2299-4c93-9fb8-c11f08c6512d"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ITEM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="69" y="2" width="79" height="18" uuid="b01f5515-15c8-4a9e-ab15-4aba16c0c35f"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCRIPTION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="148" y="2" width="61" height="18" uuid="87693b39-7728-4ae4-95fa-812a84cd84e1"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BRAND]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="2" width="78" height="18" uuid="0544cfe7-0791-4a74-a8dc-f5d2b0444cab"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PURPOSE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="287" y="2" width="74" height="18" uuid="a1b6fb05-de80-47fa-a116-6bfc0a06f433"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[QTY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="361" y="2" width="70" height="18" uuid="d5e5a40a-ae02-4b05-92ad-1944c46ce8a9"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="431" y="2" width="73" height="18" uuid="b03686a9-fa5c-491c-963a-a73ec4ec4e98"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRICE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="504" y="2" width="73" height="18" uuid="7d783620-ec94-44d0-aa2d-7d4d49a07436"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AMOUNT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="577" y="2" width="78" height="18" uuid="924b47ef-530f-42dd-8ec3-c4e1a5dada8f"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUPPLIER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="655" y="2" width="97" height="18" uuid="49ee68cb-586c-4575-89fe-3f39bbc8df67"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ADDRESS]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="18" width="751" height="1" uuid="10ed3248-5a85-436e-8cb6-8a3ba7d619fd"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="81" y="0" width="67" height="20" uuid="fd60ac0e-f002-4e51-bf40-5a67870332a8"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{officeandwarehouse_info_descr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="148" y="0" width="61" height="20" uuid="f5d7993a-641c-4593-ab06-b4410bce22ce"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{officeandwarehouse_info_brand}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="209" y="0" width="78" height="20" uuid="aae450f9-1042-40c3-baf8-aabbae15f470"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{officeandwarehouse_info_purpose}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="287" y="0" width="74" height="20" uuid="b27b515a-4bd7-4b2a-8626-f3f4d1d8db45"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{officeandwarehouse_info_qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="361" y="0" width="70" height="20" uuid="f9bc7a72-50e8-4336-b203-97f587dcc682"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{officeandwarehouse_info_unit}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="431" y="0" width="73" height="20" uuid="6be52413-cbde-48d7-9c13-dc0d99b845ba"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{officeandwarehouse_info_price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="81" height="20" uuid="b8491ad6-4688-4f49-b2b4-2603f4454223"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{officeandwarehouse_info_item_name}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="504" y="0" width="73" height="20" uuid="55426843-4e37-4b93-ad55-384188208f13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{officeandwarehouse_info_amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="577" y="0" width="75" height="20" uuid="d302cb6e-5f89-40c1-a386-22d20041cc9f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{officeandwarehouse_info_supp_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="652" y="0" width="100" height="20" uuid="044043fb-6539-47db-ba29-fd3ae618a1e0"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{officeandwarehouse_info_supp_addr}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="4" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="14" width="752" height="20" uuid="70722893-ea21-4055-bb86-454327f3748a"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField pattern="#,##0.00">
+				<reportElement x="652" y="0" width="100" height="20" forecolor="#CC0000" uuid="0a31173e-15ad-4101-94f3-d3b264341b05"/>
+				<textFieldExpression><![CDATA[$V{officeandwarehouse_info_amount_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="568" y="0" width="84" height="20" uuid="df9b3430-01b7-480d-ac87-9ed7c3e63e70"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[GRAND TOTAL:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

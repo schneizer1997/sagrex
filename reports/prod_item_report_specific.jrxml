@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="prod_item_report" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a7e532be-5986-4dbe-8069-823b59e45781">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="datefrom" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dateto" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="designation" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     prod_info.`prod_info_id` AS prod_info_prod_info_id,
+     prod_info.`designation` AS prod_info_designation,
+     prod_info.`item_name` AS prod_info_item_name,
+     prod_info.`descr` AS prod_info_descr,
+     prod_info.`brand` AS prod_info_brand,
+     prod_info.`purpose` AS prod_info_purpose,
+     prod_info.`qty` AS prod_info_qty,
+     prod_info.`unit` AS prod_info_unit,
+     prod_info.`price` AS prod_info_price,
+     prod_info.`amount` AS prod_info_amount,
+     prod_info.`supp_name` AS prod_info_supp_name,
+     prod_info.`supp_addr` AS prod_info_supp_addr,
+     prod_info.`rf_no` AS prod_info_rf_no,
+     prod_info.`rf_date` AS prod_info_rf_date,
+     prod_info.`po_no` AS prod_info_po_no,
+     prod_info.`po_date` AS prod_info_po_date,
+     prod_info.`req_by` AS prod_info_req_by,
+     prod_info.`ref_no` AS prod_info_ref_no,
+     prod_info.`ref_date` AS prod_info_ref_date,
+     prod_info.`cvjv_no` AS prod_info_cvjv_no,
+     prod_info.`pjd_no` AS prod_info_pjd_no,
+     prod_info.`other_ref` AS prod_info_other_ref,
+     prod_info.`remarks` AS prod_info_remarks,
+     prod_info.`status` AS prod_info_status
+FROM
+     `prod_info` prod_info
+WHERE prod_info.`designation` = $P{designation} AND prod_info.`ref_date` BETWEEN $P{datefrom} AND $P{dateto} ORDER BY prod_info.`designation`]]>
+	</queryString>
+	<field name="prod_info_prod_info_id" class="java.lang.Integer"/>
+	<field name="prod_info_designation" class="java.lang.String"/>
+	<field name="prod_info_item_name" class="java.lang.String"/>
+	<field name="prod_info_descr" class="java.lang.String"/>
+	<field name="prod_info_brand" class="java.lang.String"/>
+	<field name="prod_info_purpose" class="java.lang.String"/>
+	<field name="prod_info_qty" class="java.lang.Integer"/>
+	<field name="prod_info_unit" class="java.lang.String"/>
+	<field name="prod_info_price" class="java.lang.Double"/>
+	<field name="prod_info_amount" class="java.lang.Double"/>
+	<field name="prod_info_supp_name" class="java.lang.String"/>
+	<field name="prod_info_supp_addr" class="java.lang.String"/>
+	<field name="prod_info_rf_no" class="java.lang.String"/>
+	<field name="prod_info_rf_date" class="java.sql.Date"/>
+	<field name="prod_info_po_no" class="java.lang.String"/>
+	<field name="prod_info_po_date" class="java.sql.Date"/>
+	<field name="prod_info_req_by" class="java.lang.String"/>
+	<field name="prod_info_ref_no" class="java.lang.String"/>
+	<field name="prod_info_ref_date" class="java.sql.Date"/>
+	<field name="prod_info_cvjv_no" class="java.lang.String"/>
+	<field name="prod_info_pjd_no" class="java.lang.String"/>
+	<field name="prod_info_other_ref" class="java.lang.String"/>
+	<field name="prod_info_remarks" class="java.lang.String"/>
+	<field name="prod_info_status" class="java.lang.Integer"/>
+	<variable name="prod_info_amount_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{prod_info_amount}]]></variableExpression>
+	</variable>
+	<group name="groupbydesignation">
+		<groupExpression><![CDATA[$F{prod_info_designation}]]></groupExpression>
+		<groupHeader>
+			<band height="16">
+				<textField>
+					<reportElement x="2" y="0" width="100" height="15" uuid="303d5cf2-9bf2-4629-81d8-1dec0072794d"/>
+					<textElement>
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{prod_info_designation}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="4"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="24" width="752" height="35" uuid="20038b1f-40f0-45a8-8106-715ab5d0254e"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PURCHASE ITEMS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="2" y="0" width="71" height="20" uuid="cc37b01f-f9f6-4e81-aef2-33338d4f7a5b"/>
+				<textFieldExpression><![CDATA[$P{datefrom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="88" y="0" width="100" height="20" uuid="1823567e-ffd5-448b-ae33-d688ad71c11e"/>
+				<textFieldExpression><![CDATA[$P{dateto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="73" y="0" width="15" height="20" uuid="1a150765-4a6d-4f50-a3ed-28e04a0aae48"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="2" width="71" height="20" uuid="bf7aef6f-94fe-4133-ac20-c894a0b4a777"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ITEM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="73" y="2" width="81" height="20" uuid="a6553052-3921-42df-a72c-93141854e8e1"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCRIPTION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="154" y="2" width="79" height="20" uuid="43801fc8-3fef-498d-ac0e-34b1eed13ef1"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BRAND]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="233" y="2" width="80" height="20" uuid="188d89bf-b9d4-4dc4-849b-fffcc8ec60e9"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PURPOSE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="2" width="37" height="20" uuid="4c010d8b-4f87-4931-9011-126870f287b2"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[QTY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="2" width="39" height="20" uuid="ba2c6b31-fc74-44d4-bfe6-8e4159549e74"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="389" y="2" width="77" height="20" uuid="c1a67a9d-6a80-4d35-ad2c-4c22d414aca9"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRICE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="469" y="2" width="77" height="20" uuid="1942eca7-e07b-4595-9fce-5afb606f12e3"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AMOUNT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="546" y="2" width="100" height="20" uuid="71b713f4-cd84-45d2-9c18-9c76cfc81fac"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUPPLIER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="646" y="2" width="106" height="20" uuid="6606554f-3dd5-4752-88a6-12c42df837cf"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ADDRESS]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="2" y="0" width="71" height="20" uuid="1685c5c7-42ad-4b4f-93f1-e8fe48530ac7"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prod_info_item_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="73" y="0" width="81" height="20" uuid="9f67d9ae-ffc3-4822-baa1-c2da4b5226e7"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prod_info_descr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="154" y="0" width="79" height="20" uuid="97b9daee-8962-400c-b9fa-2f6e91ed1411"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prod_info_brand}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="233" y="0" width="80" height="20" uuid="9855b978-51c0-45e2-8571-e570e824385d"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prod_info_purpose}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="313" y="0" width="37" height="20" uuid="d03a0ab0-9757-469d-9555-4396aca55ea0"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prod_info_qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="0" width="39" height="20" uuid="98fa33d6-a921-4bfd-a3c0-3d35f7eb1f8e"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prod_info_unit}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="389" y="0" width="80" height="20" uuid="8a408aa7-925c-4f80-9f6f-270ed4d901fe"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prod_info_price}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="469" y="0" width="77" height="20" uuid="24350ccc-3661-4eff-ae98-4ecaf8a74aab"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prod_info_amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="544" y="0" width="100" height="20" uuid="519ee02e-0043-4c1b-82ef-9183add6ce21"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prod_info_supp_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="644" y="0" width="108" height="20" uuid="fb742b14-5040-432c-b0b1-fa9cce4fb7ad"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prod_info_supp_addr}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="4" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="752" height="20" uuid="8fb5d27c-4e26-4a2b-b7ce-18d955996606"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField pattern="#,##0.00">
+				<reportElement x="652" y="0" width="100" height="20" forecolor="#CC0000" uuid="61252671-b9b2-4f7f-b3ad-401189f69f3a"/>
+				<textFieldExpression><![CDATA[$V{prod_info_amount_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="562" y="0" width="84" height="20" uuid="ba0f0743-c2a3-4d9d-a842-643cce569f33"/>
+				<text><![CDATA[GRAND TOTAL:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

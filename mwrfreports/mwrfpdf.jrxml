@@ -1,0 +1,1020 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="mwrfpdf" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ea579f60-7f05-4b50-89cb-e2b5d9e32ece">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#00008B">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#BFBFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<style name="table 6">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 7">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 8">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 9">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 9_TH" mode="Opaque" backcolor="#87CEFA">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 9_CH" mode="Opaque" backcolor="#BFE7FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 9_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF9FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 10">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 10_TH" mode="Opaque" backcolor="#0000CD">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 10_CH" mode="Opaque" backcolor="#BFBFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 10_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFEFFF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="materials" uuid="5f998624-6b13-4beb-a403-cc1fecb279ca">
+		<queryString language="SQL">
+			<![CDATA[SELECT
+     tblrequestmaterials.`MaterialsID` AS tblrequestmaterials_MaterialsID,
+     tblrequestmaterials.`MWRFID` AS tblrequestmaterials_MWRFID,
+     tblrequestmaterials.`Materials` AS tblrequestmaterials_Materials,
+     tblrequestmaterials.`Quantity` AS tblrequestmaterials_Quantity,
+     tblrequestmaterials.`UnitPrice` AS tblrequestmaterials_UnitPrice,
+     tblrequestmaterials.`Shop` AS tblrequestmaterials_Shop,
+     tblrequestmaterials.`DateGrandted` AS tblrequestmaterials_DateGrandted,
+     tblrequestmaterials.`CheckByLogistics` AS tblrequestmaterials_CheckByLogistics,
+     tblrequestmaterials.`Verified` AS tblrequestmaterials_Verified,
+     tblrequestmaterials.`PropertyType` AS tblrequestmaterials_PropertyType,
+     tblrequestmaterials.`PlateNo` AS tblrequestmaterials_PlateNo,
+     tblrequestmaterials.`MWRFNo` AS tblrequestmaterials_MWRFNo,
+     tblrequestmaterials.`RequestType` AS tblrequestmaterials_RequestType,
+     tblrequestmaterials.`RRNo` AS tblrequestmaterials_RRNo,
+     tblrequestmaterials.`Amount` AS tblrequestmaterials_Amount,
+     tblrequestmaterials.`isdelete` AS tblrequestmaterials_isdelete
+FROM
+     `tblrequestmaterials` tblrequestmaterials]]>
+		</queryString>
+		<field name="tblrequestmaterials_MaterialsID" class="java.lang.Integer"/>
+		<field name="tblrequestmaterials_MWRFID" class="java.lang.Integer"/>
+		<field name="tblrequestmaterials_Materials" class="java.lang.String"/>
+		<field name="tblrequestmaterials_Quantity" class="java.lang.Integer"/>
+		<field name="tblrequestmaterials_UnitPrice" class="java.math.BigDecimal"/>
+		<field name="tblrequestmaterials_Shop" class="java.lang.String"/>
+		<field name="tblrequestmaterials_DateGrandted" class="java.sql.Date"/>
+		<field name="tblrequestmaterials_CheckByLogistics" class="java.lang.Boolean"/>
+		<field name="tblrequestmaterials_Verified" class="java.lang.Boolean"/>
+		<field name="tblrequestmaterials_PropertyType" class="java.lang.String"/>
+		<field name="tblrequestmaterials_PlateNo" class="java.lang.String"/>
+		<field name="tblrequestmaterials_MWRFNo" class="java.lang.String"/>
+		<field name="tblrequestmaterials_RequestType" class="java.lang.String"/>
+		<field name="tblrequestmaterials_RRNo" class="java.lang.String"/>
+		<field name="tblrequestmaterials_Amount" class="java.math.BigDecimal"/>
+		<field name="tblrequestmaterials_isdelete" class="java.lang.Integer"/>
+	</subDataset>
+	<parameter name="mwrfid" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="mwrfno" class="java.lang.String"/>
+	<parameter name="rt" class="java.lang.String"/>
+	<parameter name="pn" class="java.lang.String"/>
+	<parameter name="wt" class="java.lang.String"/>
+	<parameter name="wv" class="java.lang.String"/>
+	<parameter name="jc" class="java.lang.String"/>
+	<parameter name="reptype" class="java.lang.String"/>
+	<parameter name="pt" class="java.lang.String"/>
+	<parameter name="it" class="java.lang.String"/>
+	<parameter name="bt" class="java.lang.String"/>
+	<parameter name="ctd" class="java.lang.String"/>
+	<parameter name="tf" class="java.lang.String"/>
+	<parameter name="df" class="java.lang.String"/>
+	<parameter name="pd" class="java.lang.String"/>
+	<parameter name="pc" class="java.lang.String"/>
+	<parameter name="ca" class="java.lang.String"/>
+	<parameter name="pa" class="java.lang.String"/>
+	<parameter name="remarks" class="java.lang.String"/>
+	<parameter name="rb" class="java.lang.String"/>
+	<parameter name="dhm" class="java.lang.String"/>
+	<parameter name="d1" class="java.lang.String"/>
+	<parameter name="d2" class="java.lang.String"/>
+	<parameter name="d3" class="java.lang.String"/>
+	<parameter name="st" class="java.lang.String"/>
+	<parameter name="sd" class="java.lang.String"/>
+	<parameter name="ft" class="java.lang.String"/>
+	<parameter name="fd" class="java.lang.String"/>
+	<parameter name="rrb" class="java.lang.String"/>
+	<parameter name="rab" class="java.lang.String"/>
+	<parameter name="tor" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tmh" class="java.lang.String"/>
+	<parameter name="wcb" class="java.lang.String"/>
+	<parameter name="rrno" class="java.lang.String"/>
+	<parameter name="ms" class="java.lang.String"/>
+	<parameter name="requestor" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\xampp\\htdocs\\sagrex\\mwrfreports\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tblrequestform.`MWRFID` AS tblrequestform_MWRFID,
+     tblrequestform.`MWRFNo` AS tblrequestform_MWRFNo,
+     tblrequestform.`RequestType` AS tblrequestform_RequestType,
+     tblrequestform.`PlateNo` AS tblrequestform_PlateNo,
+     tblrequestform.`WorkType` AS tblrequestform_WorkType,
+     tblrequestform.`WorkVenue` AS tblrequestform_WorkVenue,
+     tblrequestform.`JobClassification` AS tblrequestform_JobClassification,
+     tblrequestform.`RepairType` AS tblrequestform_RepairType,
+     tblrequestform.`PMType` AS tblrequestform_PMType,
+     tblrequestform.`ImprovementType` AS tblrequestform_ImprovementType,
+     tblrequestform.`BreakdownType` AS tblrequestform_BreakdownType,
+     tblrequestform.`CompletionTargetDate` AS tblrequestform_CompletionTargetDate,
+     tblrequestform.`TimeFile` AS tblrequestform_TimeFile,
+     tblrequestform.`DateFile` AS tblrequestform_DateFile,
+     tblrequestform.`PropertyDescription` AS tblrequestform_PropertyDescription,
+     tblrequestform.`ProblemCause` AS tblrequestform_ProblemCause,
+     tblrequestform.`CorrectiveAction` AS tblrequestform_CorrectiveAction,
+     tblrequestform.`PreventiveAction` AS tblrequestform_PreventiveAction,
+     tblrequestform.`Remarks` AS tblrequestform_Remarks,
+     tblrequestform.`RequestedBy` AS tblrequestform_RequestedBy,
+     tblrequestform.`DepartmentHeadManager` AS tblrequestform_DepartmentHeadManager,
+     tblrequestform.`Designated1` AS tblrequestform_Designated1,
+     tblrequestform.`Designated2` AS tblrequestform_Designated2,
+     tblrequestform.`Designated3` AS tblrequestform_Designated3,
+     tblrequestform.`StartTime` AS tblrequestform_StartTime,
+     tblrequestform.`StartDate` AS tblrequestform_StartDate,
+     tblrequestform.`FinishTime` AS tblrequestform_FinishTime,
+     tblrequestform.`FinishDate` AS tblrequestform_FinishDate,
+     tblrequestform.`RequestReceivedBy` AS tblrequestform_RequestReceivedBy,
+     tblrequestform.`RequestApprovedBy` AS tblrequestform_RequestApprovedBy,
+     tblrequestform.`TypeOfRequest` AS tblrequestform_TypeOfRequest,
+     tblrequestform.`TotalManHours` AS tblrequestform_TotalManHours,
+     tblrequestform.`WarehouseCheckedBy` AS tblrequestform_WarehouseCheckedBy,
+     tblrequestform.`CompletedMWRFVerifiedBy` AS tblrequestform_CompletedMWRFVerifiedBy,
+     tblrequestform.`RRNo` AS tblrequestform_RRNo,
+     tblrequestform.`DateAdded` AS tblrequestform_DateAdded,
+     tblrequestform.`DateEdited` AS tblrequestform_DateEdited,
+     tblrequestform.`MWRFStatus` AS tblrequestform_MWRFStatus,
+     tblrequestform.`Requestor` AS tblrequestform_Requestor
+FROM
+     `tblrequestform` tblrequestform
+WHERE
+     MWRFID = $P{mwrfid}]]>
+	</queryString>
+	<field name="tblrequestform_MWRFID" class="java.lang.Integer"/>
+	<field name="tblrequestform_MWRFNo" class="java.lang.String"/>
+	<field name="tblrequestform_RequestType" class="java.lang.String"/>
+	<field name="tblrequestform_PlateNo" class="java.lang.String"/>
+	<field name="tblrequestform_WorkType" class="java.lang.String"/>
+	<field name="tblrequestform_WorkVenue" class="java.lang.String"/>
+	<field name="tblrequestform_JobClassification" class="java.lang.String"/>
+	<field name="tblrequestform_RepairType" class="java.lang.String"/>
+	<field name="tblrequestform_PMType" class="java.lang.String"/>
+	<field name="tblrequestform_ImprovementType" class="java.lang.String"/>
+	<field name="tblrequestform_BreakdownType" class="java.lang.String"/>
+	<field name="tblrequestform_CompletionTargetDate" class="java.sql.Date"/>
+	<field name="tblrequestform_TimeFile" class="java.sql.Timestamp"/>
+	<field name="tblrequestform_DateFile" class="java.sql.Date"/>
+	<field name="tblrequestform_PropertyDescription" class="java.lang.String"/>
+	<field name="tblrequestform_ProblemCause" class="java.lang.String"/>
+	<field name="tblrequestform_CorrectiveAction" class="java.lang.String"/>
+	<field name="tblrequestform_PreventiveAction" class="java.lang.String"/>
+	<field name="tblrequestform_Remarks" class="java.lang.String"/>
+	<field name="tblrequestform_RequestedBy" class="java.lang.String"/>
+	<field name="tblrequestform_DepartmentHeadManager" class="java.lang.String"/>
+	<field name="tblrequestform_Designated1" class="java.lang.String"/>
+	<field name="tblrequestform_Designated2" class="java.lang.String"/>
+	<field name="tblrequestform_Designated3" class="java.lang.String"/>
+	<field name="tblrequestform_StartTime" class="java.sql.Timestamp"/>
+	<field name="tblrequestform_StartDate" class="java.sql.Date"/>
+	<field name="tblrequestform_FinishTime" class="java.sql.Timestamp"/>
+	<field name="tblrequestform_FinishDate" class="java.sql.Date"/>
+	<field name="tblrequestform_RequestReceivedBy" class="java.lang.String"/>
+	<field name="tblrequestform_RequestApprovedBy" class="java.lang.String"/>
+	<field name="tblrequestform_TypeOfRequest" class="java.lang.String"/>
+	<field name="tblrequestform_TotalManHours" class="java.lang.String"/>
+	<field name="tblrequestform_WarehouseCheckedBy" class="java.lang.String"/>
+	<field name="tblrequestform_CompletedMWRFVerifiedBy" class="java.lang.String"/>
+	<field name="tblrequestform_RRNo" class="java.lang.String"/>
+	<field name="tblrequestform_DateAdded" class="java.sql.Date"/>
+	<field name="tblrequestform_DateEdited" class="java.sql.Date"/>
+	<field name="tblrequestform_MWRFStatus" class="java.lang.String"/>
+	<field name="tblrequestform_Requestor" class="java.lang.String"/>
+	<field name="materials" class="java.lang.String"/>
+	<field name="quantity" class="java.lang.String"/>
+	<field name="uprice" class="java.lang.String"/>
+	<field name="amount" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="93" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="49" splitType="Stretch">
+			<staticText>
+				<reportElement isPrintRepeatedValues="false" mode="Transparent" x="0" y="3" width="802" height="35" uuid="862c8008-a2bf-4d7c-9738-33b13f0627bb"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Century Gothic" size="20" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[MWRF FORM]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="718" y="3" width="83" height="20" uuid="f6c1fa76-0625-4aeb-bc03-9fb4df5f57d9"/>
+				<textFieldExpression><![CDATA[$P{mwrfid}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="628" y="3" width="90" height="20" uuid="d7149477-e356-45db-ae06-1fa10e8080b1"/>
+				<text><![CDATA[MWRFID:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="13" y="25" width="789" height="1" uuid="601a768f-bb4c-431f-b65d-6358858ebaed"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="393" splitType="Stretch">
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="112" y="10" width="100" height="20" uuid="ec07ec31-63c7-47f7-9819-0c1765b77cbc"/>
+				<textFieldExpression><![CDATA[$P{mwrfno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="112" y="30" width="100" height="20" uuid="95a28e98-1263-49f5-8ce1-5de37aea0019"/>
+				<textFieldExpression><![CDATA[$P{rt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="50" width="100" height="20" uuid="3686cc71-164a-46af-a040-1899ee72abfd"/>
+				<textFieldExpression><![CDATA[$P{pn}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="70" width="100" height="20" uuid="b339c17c-1261-44e4-9ce6-0893fbd8b1ea"/>
+				<textFieldExpression><![CDATA[$P{wt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="90" width="100" height="20" uuid="6261d1b4-911f-4777-823b-2fc523b9b7d2"/>
+				<textFieldExpression><![CDATA[$P{wv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="110" width="100" height="20" uuid="2293832d-9e5d-4861-94ce-b906707fdb78"/>
+				<textFieldExpression><![CDATA[$P{jc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="130" width="100" height="20" uuid="bd16e562-8a2d-4178-9ea7-b907f2625fc8"/>
+				<textFieldExpression><![CDATA[$P{reptype}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="150" width="100" height="20" uuid="ccb025c1-6d0f-41a5-9529-163434b351e4"/>
+				<textFieldExpression><![CDATA[$P{pt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="170" width="100" height="20" uuid="f342894c-7db1-42a4-b1cc-861d99ee6c34"/>
+				<textFieldExpression><![CDATA[$P{it}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="190" width="100" height="20" uuid="6d9a2088-805c-4cc9-9976-9c17a2280938"/>
+				<textFieldExpression><![CDATA[$P{bt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="210" width="100" height="20" uuid="762e5adf-427c-4b02-a47e-c7fe424543cb"/>
+				<textFieldExpression><![CDATA[$P{ctd}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="10" width="100" height="20" uuid="9509485a-f5b3-4720-9d56-c4d487d20961"/>
+				<textFieldExpression><![CDATA[$P{tf}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="30" width="100" height="20" uuid="f3770794-e531-45a9-b837-fa3cfaced74f"/>
+				<textFieldExpression><![CDATA[$P{df}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="50" width="158" height="20" uuid="d7e9afb1-b07b-4d28-9e1a-5973a87c5992"/>
+				<textFieldExpression><![CDATA[$P{pd}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="70" width="158" height="20" uuid="e05a39f4-ba12-4cc7-8829-d17022a060e7"/>
+				<textFieldExpression><![CDATA[$P{pc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="90" width="158" height="20" uuid="182531af-06ac-4cc1-8fb8-e2601c2853b0"/>
+				<textFieldExpression><![CDATA[$P{ca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="110" width="100" height="20" uuid="4d16ef8b-0eda-40eb-875d-68896421f562"/>
+				<textFieldExpression><![CDATA[$P{pa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="130" width="100" height="20" uuid="3e2dcf6e-32b7-4c2a-97c3-7550c4edaec9"/>
+				<textFieldExpression><![CDATA[$P{remarks}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="150" width="100" height="20" uuid="b76635a9-9cc5-46bc-ac51-3579f4b09b85"/>
+				<textFieldExpression><![CDATA[$P{rb}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="170" width="100" height="20" uuid="3d6c0380-93f4-47b6-b91c-4f94752e0e14"/>
+				<textFieldExpression><![CDATA[$P{dhm}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="676" y="10" width="100" height="20" uuid="22273b94-7a4a-48a7-bc2b-6191ad803f9a"/>
+				<textFieldExpression><![CDATA[$P{st}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="676" y="30" width="100" height="20" uuid="1c410cef-0cca-4677-ade2-68e361f01b6b"/>
+				<textFieldExpression><![CDATA[$P{sd}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="676" y="50" width="100" height="20" uuid="7efbce6d-b813-4aad-b9ad-50e2a3b16d44"/>
+				<textFieldExpression><![CDATA[$P{ft}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="676" y="70" width="100" height="20" uuid="c00dbb1f-7f22-4c74-b64d-5a1cf20e7a3f"/>
+				<textFieldExpression><![CDATA[$P{fd}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="676" y="90" width="100" height="20" uuid="d82ba9cd-52fb-493c-9383-d9747159197e"/>
+				<textFieldExpression><![CDATA[$P{rrb}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="676" y="110" width="100" height="20" uuid="ab24ce6a-9b65-4ea4-a4f4-dc4d0b95fedb"/>
+				<textFieldExpression><![CDATA[$P{rab}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="676" y="130" width="100" height="20" uuid="dd25918c-a2de-472f-8d70-edfa0d6ab291"/>
+				<textFieldExpression><![CDATA[$P{tor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="676" y="150" width="100" height="20" uuid="e78ed1f2-0758-4697-aaa5-293a1f2c0c64"/>
+				<textFieldExpression><![CDATA[$P{tmh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="676" y="170" width="100" height="20" uuid="f41ecc82-a3de-48d9-9070-f5c01446e01d"/>
+				<textFieldExpression><![CDATA[$P{wcb}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="676" y="190" width="100" height="20" uuid="004254e2-ed61-45d7-a26b-a6e084eb05fd"/>
+				<textFieldExpression><![CDATA[$P{rrno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="676" y="210" width="100" height="20" uuid="257f0039-9dc3-46cb-9ffc-c6a6b6b131e9"/>
+				<textFieldExpression><![CDATA[$P{ms}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="676" y="230" width="100" height="20" uuid="5efda0e5-fb49-4dcc-9c11-77c42d9ecc23"/>
+				<textFieldExpression><![CDATA[$P{requestor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="10" width="99" height="20" uuid="f171e711-8be6-45e7-8d61-846f7b09834a"/>
+				<text><![CDATA[MWRF No. :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="50" width="99" height="20" uuid="4167ec2a-5088-47d6-9879-37d166d4bd73"/>
+				<text><![CDATA[Plate No.:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="30" width="99" height="20" uuid="f17027e3-1038-4547-935b-be64d276b858"/>
+				<text><![CDATA[Request Type:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="70" width="99" height="20" uuid="70ea3963-fe56-4020-82e7-6299dcf2b9d2"/>
+				<text><![CDATA[Work Type:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="90" width="99" height="20" uuid="e69bdd72-70a9-4ea1-b9b9-c3880fba3c27"/>
+				<text><![CDATA[Work Venue:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="130" width="99" height="20" uuid="a8d65646-6ec8-42dd-a5cd-cfdef1031dfc"/>
+				<text><![CDATA[Repair Type:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="110" width="99" height="20" uuid="79d2173d-6e7c-4527-bf6a-3f6126eeb205"/>
+				<text><![CDATA[Job Classification:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="150" width="99" height="20" uuid="eb4e95ab-07a1-43df-9080-925600b8f272"/>
+				<text><![CDATA[PM Type:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="170" width="99" height="20" uuid="590a8ef7-6903-4334-9f16-e60e2ab2a4aa"/>
+				<text><![CDATA[Improvement Type:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="190" width="99" height="20" uuid="f41251e4-da2f-4d66-87e6-ac342d6c584b"/>
+				<text><![CDATA[Breakdown Type:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="210" width="99" height="20" uuid="d0668f0f-3e11-4ecf-9c96-d879c89805b3"/>
+				<text><![CDATA[Completion Target:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="10" width="111" height="20" uuid="378192e3-9778-4fb3-8982-fa5e1fd38007"/>
+				<text><![CDATA[Time File:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="30" width="111" height="20" uuid="c4ea63fa-4426-4d66-84f8-f7fabf747d4a"/>
+				<text><![CDATA[Date File:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="50" width="111" height="20" uuid="d7acc118-3733-4fb0-8683-a1f2df97cc79"/>
+				<text><![CDATA[Property Description:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="70" width="111" height="20" uuid="aec944c9-d0a0-4fad-9d14-1bc80bf54919"/>
+				<text><![CDATA[Problem Cause:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="90" width="111" height="20" uuid="55e62881-6bea-48bf-abdb-b793ea67c822"/>
+				<text><![CDATA[Corrective Action:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="110" width="111" height="20" uuid="64f6deb6-7b48-436d-9623-c1f73fb323c1"/>
+				<text><![CDATA[Preventive Action:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="130" width="111" height="20" uuid="67ffbe44-89b2-483f-85b0-bd50aa856b2f"/>
+				<text><![CDATA[Remarks:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="150" width="111" height="20" uuid="c8c4fa83-4871-4ae3-876f-643322242e1d"/>
+				<text><![CDATA[Requested By:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="170" width="111" height="20" uuid="6329ea77-947d-493d-85c1-6cfe04d08939"/>
+				<text><![CDATA[Dept. Head Manager:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="565" y="10" width="111" height="20" uuid="4e11b062-a7cf-4aaa-b45a-691e9f6537c1"/>
+				<text><![CDATA[Start Time:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="565" y="30" width="111" height="20" uuid="df7c515c-904d-428c-8e64-95439415ee28"/>
+				<text><![CDATA[Start Date:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="565" y="50" width="111" height="20" uuid="dffdce61-89ac-45c7-94a7-1e354048c475"/>
+				<text><![CDATA[Finish Time:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="566" y="190" width="110" height="20" uuid="c0a5ff69-6106-44ee-a79d-a736223594a7"/>
+				<text><![CDATA[RRNo. :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="565" y="70" width="111" height="20" uuid="fe595405-8849-44cc-9381-ae268d165a01"/>
+				<text><![CDATA[Finish Date:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="566" y="150" width="110" height="20" uuid="0f0b835a-6463-4cfd-9163-ee38c426c5bd"/>
+				<text><![CDATA[Total Man Hours:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="566" y="130" width="110" height="20" uuid="e9379f4e-9b73-4132-b5b9-63dc033ffac4"/>
+				<text><![CDATA[Type of Request:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="566" y="210" width="110" height="20" uuid="749f3884-2ed8-4162-9beb-af8470ed1da3"/>
+				<text><![CDATA[Status:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="566" y="90" width="110" height="20" uuid="6d1b3e4d-5948-4581-8775-62e5a885935c"/>
+				<text><![CDATA[Received By:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="566" y="170" width="110" height="20" uuid="24a9d9ae-bb0d-4bae-b500-d7b7fca3c011"/>
+				<text><![CDATA[Warehouse Check By:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="566" y="110" width="110" height="20" uuid="b096cf8f-54b4-4ec7-99ea-8df68b8e9044"/>
+				<text><![CDATA[Approved By:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="566" y="230" width="110" height="20" uuid="f553f514-fd21-48a7-9e3c-505ec540323c"/>
+				<text><![CDATA[Requestor:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="190" width="111" height="20" uuid="3045fd6d-7c63-43da-a44d-a2d5a1f6a5b2"/>
+				<text><![CDATA[Designated to:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="394" y="190" width="100" height="20" uuid="4277a5da-81d3-475d-9de9-62cda84375f2"/>
+				<textFieldExpression><![CDATA[$P{d1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="210" width="100" height="20" uuid="80b89f83-5d4c-467f-bc67-21a02b9f0193"/>
+				<textFieldExpression><![CDATA[$P{d2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="230" width="100" height="20" uuid="3f3113d7-b677-4b85-a00b-ffff68254ccb"/>
+				<textFieldExpression><![CDATA[$P{d3}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="277" width="100" height="20" uuid="89347fe3-3a60-45b6-81ef-66175c64d384"/>
+				<text><![CDATA[MATERIALS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="242" y="277" width="100" height="20" uuid="3c807987-4581-4d6f-852b-d5d93d95c52e"/>
+				<text><![CDATA[QUANTITY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="465" y="277" width="100" height="20" uuid="51a31174-8bb3-4fc6-b925-c02164819a94"/>
+				<text><![CDATA[UNIT PRICE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="676" y="277" width="100" height="20" uuid="6c72ea43-b883-4b54-ba32-639a6bce5c91"/>
+				<text><![CDATA[AMOUNT]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="13" y="297" width="100" height="20" uuid="66c25c47-9ecd-4d54-ad3d-c3d99991cb88"/>
+				<textFieldExpression><![CDATA[$F{materials}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="242" y="297" width="100" height="20" uuid="62865734-3c13-46bc-b3d0-14d0ca3b95a7"/>
+				<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="466" y="297" width="100" height="20" uuid="110ffe12-4449-4d33-be02-63df88968c5a"/>
+				<textFieldExpression><![CDATA[$F{uprice}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="676" y="297" width="100" height="20" uuid="a5827f41-8ec8-4521-a0a3-fe89cc4bb650"/>
+				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement key="table 10" style="table 10" x="13" y="317" width="763" height="60" uuid="dff1ee2e-a176-4ee3-a1d0-55170d2db7d9"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="materials" uuid="ad774c10-ce05-40f2-919f-c403c404c1b3">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="dc9ff047-f94b-46df-8ee1-8598d03c7bbc">
+						<jr:columnHeader style="table 10_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="90ee0eaf-eb20-4559-8006-ed5e1f0816ce"/>
+								<text><![CDATA[tblrequestmaterials_MaterialsID]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 10_CH" height="30"/>
+						<jr:detailCell style="table 10_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="f3a4cd8f-96f5-4de3-b88e-b94e47417381"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_MaterialsID}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="0523fb0c-3595-4874-b108-81981017cbf0">
+						<jr:columnHeader style="table 10_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="fd16035f-b7c6-47b2-81a7-d830d2f4f404"/>
+								<text><![CDATA[tblrequestmaterials_MWRFID]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 10_CH" height="30"/>
+						<jr:detailCell style="table 10_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="29ae43eb-531f-4555-906b-44ca63500564"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_MWRFID}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="1b06f863-6006-45db-899d-2e1950f3adfb">
+						<jr:columnHeader style="table 10_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="7608a360-45e6-4ea4-8c9f-3c3c71347461"/>
+								<text><![CDATA[tblrequestmaterials_Materials]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 10_CH" height="30"/>
+						<jr:detailCell style="table 10_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="27abf4cd-fa18-4ab5-bc59-74dc9dd819c8"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_Materials}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="af72d461-fede-4232-9afb-592b4cae7e0d">
+						<jr:columnHeader style="table 10_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="a9429493-8e8e-4ee5-bdc3-c3e105d2dfbd"/>
+								<text><![CDATA[tblrequestmaterials_Quantity]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 10_CH" height="30"/>
+						<jr:detailCell style="table 10_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="ee9b7bb3-21c1-434c-a60c-8a664bbd8507"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_Quantity}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="982748b7-6424-4133-8048-624ce528076e">
+						<jr:columnHeader style="table 10_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="95eeb5dc-a642-4566-9203-c0a03ac953f5"/>
+								<text><![CDATA[tblrequestmaterials_UnitPrice]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 10_CH" height="30"/>
+						<jr:detailCell style="table 10_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="2e9ba767-6e3a-4061-987d-d272d3e9b94f"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_UnitPrice}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="6c7a45c2-f0bf-44f1-9ea7-9dee02775416">
+						<jr:columnHeader style="table 10_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="5480f7ad-facd-42d7-817b-2a06116edaa8"/>
+								<text><![CDATA[tblrequestmaterials_Shop]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 10_CH" height="30"/>
+						<jr:detailCell style="table 10_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="8fe0802e-e453-428d-ac62-1e86438ca1c9"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_Shop}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="4f9ffcd8-c021-4f56-82ec-e9d0a0861871">
+						<jr:columnHeader style="table 10_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="aef729fd-e5dd-48cc-b539-405d0a83f767"/>
+								<text><![CDATA[tblrequestmaterials_DateGrandted]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 10_CH" height="30"/>
+						<jr:detailCell style="table 10_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="8c2af4df-456c-49ef-9843-69a419f9d516"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_DateGrandted}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="5b8d8147-2690-4db1-b7b3-b0e13b442309">
+						<jr:columnHeader style="table 10_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="1f052599-8309-4a3f-889c-6494bfe14f5a"/>
+								<text><![CDATA[tblrequestmaterials_CheckByLogistics]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 10_CH" height="30"/>
+						<jr:detailCell style="table 10_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="dbf0d717-5765-4c78-b540-9375acea2b13"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_CheckByLogistics}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="d15f3aec-5fd7-4984-bf26-0f525e978b3b">
+						<jr:columnHeader style="table 10_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="7c8f02bb-1c11-4211-8580-70a30db7ce1f"/>
+								<text><![CDATA[tblrequestmaterials_Verified]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 10_CH" height="30"/>
+						<jr:detailCell style="table 10_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="6a620b2f-fa93-4057-8382-f0e3a01cfb48"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_Verified}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="ce69caef-c43b-4f00-9a8e-89348f2fccae">
+						<jr:columnHeader style="table 10_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="cfe48b0a-d33a-4dc4-8f62-60297cf7c3f0"/>
+								<text><![CDATA[tblrequestmaterials_PropertyType]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 10_CH" height="30"/>
+						<jr:detailCell style="table 10_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="e68174b0-5ea4-4465-9c87-bc8f7b815c84"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_PropertyType}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="d81914d4-7382-4df1-b038-7ba2a4fb3289">
+						<jr:columnHeader style="table 10_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="edcad15f-e4ed-4182-a5b0-5bcb2f702bf9"/>
+								<text><![CDATA[tblrequestmaterials_PlateNo]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 10_CH" height="30"/>
+						<jr:detailCell style="table 10_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="76a9e881-450f-4762-953e-62b2027db947"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_PlateNo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="a0525408-7ca1-4ff2-b108-1226195a1983">
+						<jr:columnHeader style="table 10_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="4fc787a3-7974-4b7f-89ea-9b433bdfb7f6"/>
+								<text><![CDATA[tblrequestmaterials_MWRFNo]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 10_CH" height="30"/>
+						<jr:detailCell style="table 10_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="109910f0-2902-4287-a821-efccef1c874c"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_MWRFNo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="a7e283b7-c27e-420e-97cf-0f8f018dde68">
+						<jr:columnHeader style="table 10_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="1d7c6f79-26cf-470b-b971-086b5798d0c3"/>
+								<text><![CDATA[tblrequestmaterials_RequestType]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 10_CH" height="30"/>
+						<jr:detailCell style="table 10_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="a8e00057-bcc1-4a5b-8a87-ec688f0b29d5"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_RequestType}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="a6d10c2a-4122-41e9-a5c4-5d32f7797c82">
+						<jr:columnHeader style="table 10_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="ec8b004e-e384-4a41-91a8-72aa71015b09"/>
+								<text><![CDATA[tblrequestmaterials_RRNo]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 10_CH" height="30"/>
+						<jr:detailCell style="table 10_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="48f3d508-ff29-43ea-b9f6-ed8b9dd4edf2"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_RRNo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="b72b7d47-21a3-4878-9ce3-b7a0e6f98314">
+						<jr:columnHeader style="table 10_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="a6700705-21f2-4e9f-9c48-781f31853c43"/>
+								<text><![CDATA[tblrequestmaterials_Amount]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 10_CH" height="30"/>
+						<jr:detailCell style="table 10_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="3b36d2fb-14f7-486d-a4aa-007d243f2a2d"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_Amount}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="4e0c16d4-a806-4c28-8cdf-3810ba69f532">
+						<jr:columnHeader style="table 10_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="fc0f00d1-ef6e-4fc8-aa97-20d465f34bd9"/>
+								<text><![CDATA[tblrequestmaterials_isdelete]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 10_CH" height="30"/>
+						<jr:detailCell style="table 10_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="ef27f3eb-09d0-4c26-8914-c59dd937bcdf"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_isdelete}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="3" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

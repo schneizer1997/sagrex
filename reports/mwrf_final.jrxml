@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="mwrf_final" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d3c912af-deca-4901-ac4c-5c3212fe2734">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#00008B">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFBFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFEFFF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="mwrf" uuid="bd0c8d44-33a8-4619-b94e-6b86ef530034">
+		<parameter name="mwrfid" class="java.lang.Integer">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT
+     tblrequestmaterials.`MaterialsID` AS tblrequestmaterials_MaterialsID,
+     tblrequestmaterials.`MWRFID` AS tblrequestmaterials_MWRFID,
+     tblrequestmaterials.`Materials` AS tblrequestmaterials_Materials,
+     tblrequestmaterials.`Quantity` AS tblrequestmaterials_Quantity,
+     tblrequestmaterials.`UnitPrice` AS tblrequestmaterials_UnitPrice,
+     tblrequestmaterials.`Shop` AS tblrequestmaterials_Shop,
+     tblrequestmaterials.`CheckByLogistics` AS tblrequestmaterials_CheckByLogistics,
+     tblrequestmaterials.`Verified` AS tblrequestmaterials_Verified,
+     tblrequestmaterials.`PropertyType` AS tblrequestmaterials_PropertyType,
+     tblrequestmaterials.`PlateNo` AS tblrequestmaterials_PlateNo,
+     tblrequestmaterials.`MWRFNo` AS tblrequestmaterials_MWRFNo,
+     tblrequestmaterials.`RequestType` AS tblrequestmaterials_RequestType,
+     tblrequestmaterials.`RRNo` AS tblrequestmaterials_RRNo,
+     tblrequestmaterials.`Amount` AS tblrequestmaterials_Amount,
+     tblrequestmaterials.`isdelete` AS tblrequestmaterials_isdelete
+FROM
+     `tblrequestmaterials` tblrequestmaterials WHERE tblrequestmaterials.`MWRFID` = $P{mwrfid}]]>
+		</queryString>
+		<field name="tblrequestmaterials_MaterialsID" class="java.lang.Integer"/>
+		<field name="tblrequestmaterials_MWRFID" class="java.lang.Integer"/>
+		<field name="tblrequestmaterials_Materials" class="java.lang.String"/>
+		<field name="tblrequestmaterials_Quantity" class="java.math.BigDecimal"/>
+		<field name="tblrequestmaterials_UnitPrice" class="java.math.BigDecimal"/>
+		<field name="tblrequestmaterials_Shop" class="java.lang.String"/>
+		<field name="tblrequestmaterials_CheckByLogistics" class="java.lang.Boolean"/>
+		<field name="tblrequestmaterials_Verified" class="java.lang.Boolean"/>
+		<field name="tblrequestmaterials_PropertyType" class="java.lang.String"/>
+		<field name="tblrequestmaterials_PlateNo" class="java.lang.String"/>
+		<field name="tblrequestmaterials_MWRFNo" class="java.lang.String"/>
+		<field name="tblrequestmaterials_RequestType" class="java.lang.String"/>
+		<field name="tblrequestmaterials_RRNo" class="java.lang.String"/>
+		<field name="tblrequestmaterials_Amount" class="java.math.BigDecimal"/>
+		<field name="tblrequestmaterials_isdelete" class="java.lang.Integer"/>
+	</subDataset>
+	<parameter name="id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+1,
+     tblrequestmaterials.`MWRFID` AS tblrequestmaterials_MWRFID,
+     tblrequestmaterials.`Materials` AS tblrequestmaterials_Materials,
+     tblrequestmaterials.`Quantity` AS tblrequestmaterials_Quantity,
+     tblrequestmaterials.`UnitPrice` AS tblrequestmaterials_UnitPrice,
+     tblrequestmaterials.`Shop` AS tblrequestmaterials_Shop,
+     tblrequestmaterials.`RequestType` AS tblrequestmaterials_RequestType,
+     tblrequestmaterials.`Amount` AS tblrequestmaterials_Amount,
+     tblrequestmaterials.`isdelete` AS tblrequestmaterials_isdelete
+FROM
+     `tblrequestmaterials` tblrequestmaterials LIMIT 1]]>
+	</queryString>
+	<field name="1" class="java.lang.Long"/>
+	<field name="tblrequestmaterials_MWRFID" class="java.lang.Integer"/>
+	<field name="tblrequestmaterials_Materials" class="java.lang.String"/>
+	<field name="tblrequestmaterials_Quantity" class="java.math.BigDecimal"/>
+	<field name="tblrequestmaterials_UnitPrice" class="java.math.BigDecimal"/>
+	<field name="tblrequestmaterials_Shop" class="java.lang.String"/>
+	<field name="tblrequestmaterials_RequestType" class="java.lang.String"/>
+	<field name="tblrequestmaterials_Amount" class="java.math.BigDecimal"/>
+	<field name="tblrequestmaterials_isdelete" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="92" y="0" width="100" height="20" uuid="edc97cca-3c14-45f9-9ddd-65dd218ba617"/>
+				<textFieldExpression><![CDATA[$P{id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="11" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="105" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table 4" style="table 1" x="0" y="35" width="555" height="50" isPrintInFirstWholeBand="true" uuid="02d3a795-95ed-48e1-8bfe-3918b155a807"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
+					<datasetRun subDataset="mwrf" uuid="b0531a49-2153-4a82-bb76-a33a98fa834d">
+						<datasetParameter name="mwrfid">
+							<datasetParameterExpression><![CDATA[$P{id}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="af3aa81b-c738-4616-9d2b-f10cc90d98d8">
+						<jr:columnHeader style="table 4_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="1c1eea51-f503-4ae2-953d-4ba42f5d2dbd"/>
+								<text><![CDATA[tblrequestmaterials_MaterialsID]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 4_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="07e1b2a6-056c-4419-97f6-1afe6746ec6e"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_MaterialsID}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="d66d4985-399c-45da-94db-546a44052c24">
+						<jr:columnHeader style="table 4_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="0c5a3c29-df4a-4efd-b2fb-7c5383eb74b3"/>
+								<text><![CDATA[tblrequestmaterials_MWRFID]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 4_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="5fde33f9-8bd0-45f8-aa47-07fb0ad5307c"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_MWRFID}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="0d65473d-39e7-480e-9eb0-194fac6fd8c3">
+						<jr:columnHeader style="table 4_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="33698143-39d8-4957-ab58-8b73cd3efe98"/>
+								<text><![CDATA[tblrequestmaterials_Materials]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 4_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="1fc2870f-5dd7-443e-81f3-69d63647e398"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_Materials}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="f95ba730-41d0-4d60-adec-c6a659fe85da">
+						<jr:columnHeader style="table 4_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="b48ca0ca-9403-4153-9d27-8035d6e229d4"/>
+								<text><![CDATA[tblrequestmaterials_Quantity]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 4_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="9d0a8a3b-c8f9-4d87-8a00-1b5a1d7281db"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_Quantity}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="5d50e7dd-9603-4519-94fc-5014deca764d">
+						<jr:columnHeader style="table 4_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="138fe3b9-9384-4407-80c5-53503781cc1f"/>
+								<text><![CDATA[tblrequestmaterials_UnitPrice]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 4_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="bb6aab84-8e11-45e2-bd95-607646054b00"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_UnitPrice}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="7502ead2-7b75-4ecf-958e-e26e3a7cead7">
+						<jr:columnHeader style="table 4_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="15202b38-475c-4bcd-b4a5-e1c90789b197"/>
+								<text><![CDATA[tblrequestmaterials_Shop]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 4_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="76c5fe83-a89c-42c7-84bf-b9c81a3b4552"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_Shop}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="238aa2e9-cbe1-474d-90a3-c166dbafda4d">
+						<jr:columnHeader style="table 4_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="7fd266fa-f889-4267-a904-c77e03576ecf"/>
+								<text><![CDATA[tblrequestmaterials_RequestType]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 4_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="70f9ab8a-a7e6-4e67-8137-a03ccfe0f6c3"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_RequestType}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="ef683640-2819-482b-b338-d0271a98a5ee">
+						<jr:columnHeader style="table 4_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="d35c3abe-df10-4c30-b792-d27e0589da9b"/>
+								<text><![CDATA[tblrequestmaterials_Amount]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 4_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="e3b35a80-babd-4885-bf30-ba748c905ce4"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_Amount}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="9886a40a-03c8-47ae-bb70-220869dd4f6f">
+						<jr:columnHeader style="table 4_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="a4536de9-3639-4b3e-9f70-f5305ca680d0"/>
+								<text><![CDATA[tblrequestmaterials_isdelete]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 4_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="f679c637-fbdb-4680-a71b-b7ce70edd992"/>
+								<textFieldExpression><![CDATA[$F{tblrequestmaterials_isdelete}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="21" y="6" width="100" height="20" uuid="b9dba556-9d33-4094-8fba-c72db2fab472"/>
+				<text><![CDATA[tblrequestmaterials_MWRFID]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="121" y="6" width="100" height="20" uuid="044974ad-72a1-4725-910b-84c535b3df52"/>
+				<textFieldExpression><![CDATA[$F{tblrequestmaterials_MWRFID}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

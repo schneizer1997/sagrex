@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="others_report" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="149831bc-d154-4817-916e-5cc6aa22a9ed">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="82"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="datefrom" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dateto" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="designation" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="datefromrange" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="datetorange" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     others_info.`others_info_id` AS others_info_others_info_id,
+     others_info.`designation` AS others_info_designation,
+     others_info.`item_name` AS others_info_item_name,
+     others_info.`descr` AS others_info_descr,
+     others_info.`brand` AS others_info_brand,
+     others_info.`purpose` AS others_info_purpose,
+     others_info.`qty` AS others_info_qty,
+     others_info.`unit` AS others_info_unit,
+     others_info.`price` AS others_info_price,
+     others_info.`amount` AS others_info_amount,
+     others_info.`supp_name` AS others_info_supp_name,
+     others_info.`supp_addr` AS others_info_supp_addr,
+     others_info.`rf_no` AS others_info_rf_no,
+     others_info.`rf_date` AS others_info_rf_date,
+     others_info.`po_no` AS others_info_po_no,
+     others_info.`po_date` AS others_info_po_date,
+     others_info.`req_by` AS others_info_req_by,
+     others_info.`ref_no` AS others_info_ref_no,
+     others_info.`ref_date` AS others_info_ref_date,
+     others_info.`cvjv_no` AS others_info_cvjv_no,
+     others_info.`pjd_no` AS others_info_pjd_no,
+     others_info.`other_ref` AS others_info_other_ref,
+     others_info.`remarks` AS others_info_remarks,
+     others_info.`status` AS others_info_status
+FROM
+     `others_info` others_info
+WHERE others_info.`designation` = $P{designation} AND others_info.`ref_date` BETWEEN $P{datefrom} AND $P{dateto}]]>
+	</queryString>
+	<field name="others_info_others_info_id" class="java.lang.Integer"/>
+	<field name="others_info_designation" class="java.lang.String"/>
+	<field name="others_info_item_name" class="java.lang.String"/>
+	<field name="others_info_descr" class="java.lang.String"/>
+	<field name="others_info_brand" class="java.lang.String"/>
+	<field name="others_info_purpose" class="java.lang.String"/>
+	<field name="others_info_qty" class="java.lang.Integer"/>
+	<field name="others_info_unit" class="java.lang.String"/>
+	<field name="others_info_price" class="java.lang.Double"/>
+	<field name="others_info_amount" class="java.lang.Double"/>
+	<field name="others_info_supp_name" class="java.lang.String"/>
+	<field name="others_info_supp_addr" class="java.lang.String"/>
+	<field name="others_info_rf_no" class="java.lang.String"/>
+	<field name="others_info_rf_date" class="java.sql.Date"/>
+	<field name="others_info_po_no" class="java.lang.String"/>
+	<field name="others_info_po_date" class="java.sql.Date"/>
+	<field name="others_info_req_by" class="java.lang.String"/>
+	<field name="others_info_ref_no" class="java.lang.String"/>
+	<field name="others_info_ref_date" class="java.sql.Date"/>
+	<field name="others_info_cvjv_no" class="java.lang.String"/>
+	<field name="others_info_pjd_no" class="java.lang.String"/>
+	<field name="others_info_other_ref" class="java.lang.String"/>
+	<field name="others_info_remarks" class="java.lang.String"/>
+	<field name="others_info_status" class="java.lang.Integer"/>
+	<variable name="others_info_amount_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{others_info_amount}]]></variableExpression>
+	</variable>
+	<group name="groupbydesignation">
+		<groupExpression><![CDATA[$F{others_info_designation}]]></groupExpression>
+		<groupHeader>
+			<band height="19">
+				<textField>
+					<reportElement x="0" y="0" width="100" height="18" uuid="35279560-f4a3-401b-a7c3-7edb22cea21c"/>
+					<textElement>
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{others_info_designation}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="2"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="23" width="752" height="31" uuid="9397f930-4879-4f74-85a2-ab2a67e66e92"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OTHERS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="15" width="65" height="20" uuid="9a781469-d4e3-4962-a890-ce71c312cc2e"/>
+				<textFieldExpression><![CDATA[$P{datefromrange}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="15" width="100" height="20" uuid="0e201193-c0f6-40e9-b845-8569fffdeb23"/>
+				<textFieldExpression><![CDATA[$P{datetorange}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="65" y="13" width="15" height="20" uuid="a4f9f5d1-e71d-419b-ab3c-4f61bbe4a7d6"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="86" height="18" uuid="3069f046-913b-44d1-b8b4-14279fe8415d"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ITEM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="86" y="0" width="78" height="18" uuid="a93c8faa-dd3e-420f-91bd-7b8108c173c6"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCRIPTION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="164" y="0" width="68" height="18" uuid="b2f8a6c4-caf3-4dac-ab06-23cc40a9628c"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BRAND]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="0" width="73" height="18" uuid="1f76bcd4-6db7-42f6-b0e2-98363c1e5168"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PURPOSE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="305" y="0" width="44" height="18" uuid="4451bee1-0d2d-4899-812e-8d5692f8eb82"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[QTY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="349" y="0" width="56" height="18" uuid="221e8b2e-cb12-41a9-be9e-f7c347e9b3fa"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="481" y="0" width="68" height="18" uuid="84ccfe77-5fc1-442c-ae56-4537a532ce57"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AMOUNT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="405" y="0" width="76" height="18" uuid="5a1bca1f-fa8c-4f1f-986f-610133273ac5"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRICE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="549" y="0" width="93" height="18" uuid="23d729a9-0b21-4d7d-867b-9dc68e11f6fb"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUPPLIER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="642" y="0" width="110" height="18" uuid="371bdf49-5320-4865-bfcf-da92a7877b86"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ADDRESS]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="19" width="752" height="1" uuid="64acb13c-c456-4316-8b96-8ce63ec4963a"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="86" height="20" uuid="682a608d-3602-4b10-8e61-af920224a888"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{others_info_item_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="86" y="0" width="78" height="20" uuid="e4697b36-f7d4-40b8-8d7a-7ee914ea3f02"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{others_info_descr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="164" y="0" width="68" height="20" uuid="da929d2a-dab2-43ee-87bd-322458278d13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{others_info_brand}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="232" y="0" width="72" height="20" uuid="5bce85f1-43de-4218-995d-95c5587c4619"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{others_info_purpose}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="0" width="44" height="20" uuid="5d782c24-c5b3-4afe-b0ca-0b46aab91028"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{others_info_qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="349" y="0" width="56" height="20" uuid="c19175eb-ff75-40cb-b01b-4f5ea338b106"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{others_info_unit}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="405" y="0" width="76" height="20" uuid="e5393b1c-3b36-4f21-86b9-6b1fde601fd1"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{others_info_price}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="481" y="0" width="68" height="20" uuid="a0acf1b9-143e-4cde-a392-a95459b2ced1"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{others_info_amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="549" y="0" width="93" height="20" uuid="47a9c15e-eed0-4447-bf5d-8a10dde466b2"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{others_info_supp_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="642" y="0" width="110" height="20" uuid="4c2099f5-b1fa-441d-be79-a7f9845a209f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{others_info_supp_addr}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="2" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="17" width="752" height="20" uuid="7bfe6007-82d9-4f2a-97bb-957844e9d740"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField pattern="#,##0.00">
+				<reportElement x="642" y="0" width="110" height="20" forecolor="#CC0000" uuid="4632309a-246a-4eaa-99f1-a6fbc9b32b73"/>
+				<textFieldExpression><![CDATA[$V{others_info_amount_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="549" y="0" width="93" height="20" uuid="26347840-8449-445b-ba00-a4f5c465d841"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[GRAND TOTAL:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

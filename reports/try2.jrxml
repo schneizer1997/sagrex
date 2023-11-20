@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="try2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ec2d1f6c-1611-4d40-81dc-be8f18e890ae">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     vehicle_info.`vehinfo_id` AS vehicle_info_vehinfo_id,
+     vehicle_info.`plate_id` AS vehicle_info_plate_id,
+     vehicle_info.`assign_name` AS vehicle_info_assign_name,
+     vehicle_info.`item` AS vehicle_info_item,
+     vehicle_info.`descr` AS vehicle_info_descr,
+     vehicle_info.`brand` AS vehicle_info_brand,
+     vehicle_info.`qty` AS vehicle_info_qty,
+     vehicle_info.`unit` AS vehicle_info_unit,
+     vehicle_info.`price` AS vehicle_info_price,
+     vehicle_info.`amount` AS vehicle_info_amount,
+     vehicle_info.`supp_name` AS vehicle_info_supp_name,
+     vehicle_info.`address` AS vehicle_info_address,
+     vehicle_info.`rf_no` AS vehicle_info_rf_no,
+     vehicle_info.`daterfno` AS vehicle_info_daterfno,
+     vehicle_info.`po_no` AS vehicle_info_po_no,
+     vehicle_info.`req_by` AS vehicle_info_req_by,
+     vehicle_info.`ref_no` AS vehicle_info_ref_no,
+     vehicle_info.`daterefno` AS vehicle_info_daterefno,
+     vehicle_info.`cvjv` AS vehicle_info_cvjv,
+     vehicle_info.`other_ref` AS vehicle_info_other_ref,
+     vehicle_info.`remarks` AS vehicle_info_remarks,
+     vehicle_info.`status` AS vehicle_info_status
+FROM
+     `vehicle_info` vehicle_info]]>
+	</queryString>
+	<field name="vehicle_info_vehinfo_id" class="java.lang.Integer"/>
+	<field name="vehicle_info_plate_id" class="java.lang.Integer"/>
+	<field name="vehicle_info_assign_name" class="java.lang.String"/>
+	<field name="vehicle_info_item" class="java.lang.String"/>
+	<field name="vehicle_info_descr" class="java.lang.String"/>
+	<field name="vehicle_info_brand" class="java.lang.String"/>
+	<field name="vehicle_info_qty" class="java.lang.Double"/>
+	<field name="vehicle_info_unit" class="java.lang.String"/>
+	<field name="vehicle_info_price" class="java.lang.Double"/>
+	<field name="vehicle_info_amount" class="java.lang.Double"/>
+	<field name="vehicle_info_supp_name" class="java.lang.String"/>
+	<field name="vehicle_info_address" class="java.lang.String"/>
+	<field name="vehicle_info_rf_no" class="java.lang.String"/>
+	<field name="vehicle_info_daterfno" class="java.sql.Date"/>
+	<field name="vehicle_info_po_no" class="java.lang.String"/>
+	<field name="vehicle_info_req_by" class="java.lang.String"/>
+	<field name="vehicle_info_ref_no" class="java.lang.String"/>
+	<field name="vehicle_info_daterefno" class="java.sql.Timestamp"/>
+	<field name="vehicle_info_cvjv" class="java.lang.String"/>
+	<field name="vehicle_info_other_ref" class="java.lang.String"/>
+	<field name="vehicle_info_remarks" class="java.lang.String"/>
+	<field name="vehicle_info_status" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

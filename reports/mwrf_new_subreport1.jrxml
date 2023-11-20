@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="mwrf_new_subreport1" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="4d0a0f39-3274-45b2-9a04-72debe4cb861">
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     tblrequestmaterials.`MaterialsID` AS tblrequestmaterials_MaterialsID,
+     tblrequestmaterials.`MWRFID` AS tblrequestmaterials_MWRFID,
+     tblrequestmaterials.`Materials` AS tblrequestmaterials_Materials,
+     tblrequestmaterials.`Quantity` AS tblrequestmaterials_Quantity,
+     tblrequestmaterials.`UnitPrice` AS tblrequestmaterials_UnitPrice,
+     tblrequestmaterials.`Shop` AS tblrequestmaterials_Shop,
+     tblrequestmaterials.`CheckByLogistics` AS tblrequestmaterials_CheckByLogistics,
+     tblrequestmaterials.`Verified` AS tblrequestmaterials_Verified,
+     tblrequestmaterials.`PropertyType` AS tblrequestmaterials_PropertyType,
+     tblrequestmaterials.`PlateNo` AS tblrequestmaterials_PlateNo,
+     tblrequestmaterials.`MWRFNo` AS tblrequestmaterials_MWRFNo,
+     tblrequestmaterials.`RequestType` AS tblrequestmaterials_RequestType,
+     tblrequestmaterials.`RRNo` AS tblrequestmaterials_RRNo,
+     tblrequestmaterials.`Amount` AS tblrequestmaterials_Amount,
+     tblrequestmaterials.`isdelete` AS tblrequestmaterials_isdelete
+FROM
+     `tblrequestmaterials` tblrequestmaterials]]>
+	</queryString>
+	<field name="tblrequestmaterials_MaterialsID" class="java.lang.Integer"/>
+	<field name="tblrequestmaterials_MWRFID" class="java.lang.Integer"/>
+	<field name="tblrequestmaterials_Materials" class="java.lang.String"/>
+	<field name="tblrequestmaterials_Quantity" class="java.math.BigDecimal"/>
+	<field name="tblrequestmaterials_UnitPrice" class="java.math.BigDecimal"/>
+	<field name="tblrequestmaterials_Shop" class="java.lang.String"/>
+	<field name="tblrequestmaterials_CheckByLogistics" class="java.lang.Boolean"/>
+	<field name="tblrequestmaterials_Verified" class="java.lang.Boolean"/>
+	<field name="tblrequestmaterials_PropertyType" class="java.lang.String"/>
+	<field name="tblrequestmaterials_PlateNo" class="java.lang.String"/>
+	<field name="tblrequestmaterials_MWRFNo" class="java.lang.String"/>
+	<field name="tblrequestmaterials_RequestType" class="java.lang.String"/>
+	<field name="tblrequestmaterials_RRNo" class="java.lang.String"/>
+	<field name="tblrequestmaterials_Amount" class="java.math.BigDecimal"/>
+	<field name="tblrequestmaterials_isdelete" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

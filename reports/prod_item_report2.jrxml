@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="prod_item_report2" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6b8ed0b0-4ef6-4e2d-8503-95ff6ac8e668">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     prod_info.`prod_info_id` AS prod_info_prod_info_id,
+     prod_info.`designation` AS prod_info_designation,
+     prod_info.`item_name` AS prod_info_item_name,
+     prod_info.`descr` AS prod_info_descr,
+     prod_info.`brand` AS prod_info_brand,
+     prod_info.`purpose` AS prod_info_purpose,
+     prod_info.`qty` AS prod_info_qty,
+     prod_info.`unit` AS prod_info_unit,
+     prod_info.`price` AS prod_info_price,
+     prod_info.`amount` AS prod_info_amount,
+     prod_info.`supp_name` AS prod_info_supp_name,
+     prod_info.`supp_addr` AS prod_info_supp_addr,
+     prod_info.`rf_no` AS prod_info_rf_no,
+     prod_info.`rf_date` AS prod_info_rf_date,
+     prod_info.`po_no` AS prod_info_po_no,
+     prod_info.`po_date` AS prod_info_po_date,
+     prod_info.`req_by` AS prod_info_req_by,
+     prod_info.`ref_no` AS prod_info_ref_no,
+     prod_info.`ref_date` AS prod_info_ref_date,
+     prod_info.`cvjv_no` AS prod_info_cvjv_no,
+     prod_info.`pjd_no` AS prod_info_pjd_no,
+     prod_info.`other_ref` AS prod_info_other_ref,
+     prod_info.`remarks` AS prod_info_remarks,
+     prod_info.`status` AS prod_info_status
+FROM
+     `prod_info` prod_info ORDER BY prod_info.`designation` ASC]]>
+	</queryString>
+	<field name="prod_info_prod_info_id" class="java.lang.Integer"/>
+	<field name="prod_info_designation" class="java.lang.String"/>
+	<field name="prod_info_item_name" class="java.lang.String"/>
+	<field name="prod_info_descr" class="java.lang.String"/>
+	<field name="prod_info_brand" class="java.lang.String"/>
+	<field name="prod_info_purpose" class="java.lang.String"/>
+	<field name="prod_info_qty" class="java.lang.Integer"/>
+	<field name="prod_info_unit" class="java.lang.String"/>
+	<field name="prod_info_price" class="java.lang.Double"/>
+	<field name="prod_info_amount" class="java.lang.Double"/>
+	<field name="prod_info_supp_name" class="java.lang.String"/>
+	<field name="prod_info_supp_addr" class="java.lang.String"/>
+	<field name="prod_info_rf_no" class="java.lang.String"/>
+	<field name="prod_info_rf_date" class="java.sql.Date"/>
+	<field name="prod_info_po_no" class="java.lang.String"/>
+	<field name="prod_info_po_date" class="java.sql.Date"/>
+	<field name="prod_info_req_by" class="java.lang.String"/>
+	<field name="prod_info_ref_no" class="java.lang.String"/>
+	<field name="prod_info_ref_date" class="java.sql.Date"/>
+	<field name="prod_info_cvjv_no" class="java.lang.String"/>
+	<field name="prod_info_pjd_no" class="java.lang.String"/>
+	<field name="prod_info_other_ref" class="java.lang.String"/>
+	<field name="prod_info_remarks" class="java.lang.String"/>
+	<field name="prod_info_status" class="java.lang.Integer"/>
+	<group name="prod_info_designation">
+		<groupExpression><![CDATA[$F{prod_info_designation}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="8" y="2" width="100" height="20" uuid="b7fccfb5-4666-4115-9ec9-0a0a53b2fa50"/>
+				<text><![CDATA[prod_info_item_name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="116" y="2" width="100" height="20" uuid="5ec600bb-9bc2-4ef2-9836-036a13d6333d"/>
+				<text><![CDATA[prod_info_descr]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="218" y="2" width="100" height="20" uuid="8e0307d9-d794-47ec-898c-d15f73a4689a"/>
+				<text><![CDATA[prod_info_brand]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="326" y="2" width="100" height="20" uuid="532e844a-0f37-43d8-acf6-ec04ff3d1fb4"/>
+				<text><![CDATA[prod_info_purpose]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="434" y="2" width="100" height="20" uuid="d5869e34-c2c6-4dce-bfb7-d6b485d66303"/>
+				<text><![CDATA[prod_info_qty]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="537" y="2" width="100" height="20" uuid="d098e706-2933-4952-8d3b-9c55659c8c26"/>
+				<text><![CDATA[prod_info_unit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="641" y="2" width="100" height="20" uuid="2ba53129-82e2-4e8c-b346-57522568e209"/>
+				<text><![CDATA[prod_info_price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="2" width="100" height="20" uuid="b4767bf1-eef6-4b49-913c-606789700eb1"/>
+				<text><![CDATA[prod_info_designation]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="8" y="18" width="100" height="20" uuid="70868ac4-71b6-42db-a256-dd4651768dae"/>
+				<textFieldExpression><![CDATA[$F{prod_info_item_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="116" y="22" width="100" height="20" uuid="9015f999-0e9f-4142-b5a5-88c86fff84e5"/>
+				<textFieldExpression><![CDATA[$F{prod_info_descr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="218" y="29" width="100" height="20" uuid="44d03259-70c1-4ae2-a023-be5f567cb71e"/>
+				<textFieldExpression><![CDATA[$F{prod_info_brand}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="326" y="35" width="100" height="20" uuid="099ad0a1-ff4a-463f-8e16-3ec404216663"/>
+				<textFieldExpression><![CDATA[$F{prod_info_purpose}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="42" width="100" height="20" uuid="ada11bbb-e388-4f85-b54e-b7dd4a13fa83"/>
+				<textFieldExpression><![CDATA[$F{prod_info_qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="537" y="48" width="100" height="20" uuid="43c0b733-2f72-4762-b87c-4923810ebeee"/>
+				<textFieldExpression><![CDATA[$F{prod_info_unit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="641" y="53" width="100" height="20" uuid="8fce98c7-171d-407f-9c71-b61035161585"/>
+				<textFieldExpression><![CDATA[$F{prod_info_price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="65" width="100" height="20" uuid="bc674630-e5e7-4b3c-ad20-53da606b8a4a"/>
+				<textFieldExpression><![CDATA[$F{prod_info_designation}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="purchase_order" language="javascript" pageWidth="595" pageHeight="468" orientation="Landscape" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryWithPageHeaderAndFooter="true" whenResourceMissingType="Empty" uuid="75f82797-7f4d-4a7d-99a4-7e398879d318">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.callouts" value="##Fri Nov 11 11:43:17 SGT 2022"/>
+	<parameter name="po_no" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\xampp\\htdocs\\sagrex\\reports\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tblpo.`id` AS tblpo_id,
+     tblpo.`po_no` AS tblpo_po_no,
+     tblpo.`po_name` AS tblpo_po_name,
+     tblpo.`po_addr` AS tblpo_po_addr,
+     tblpo.`po_date` AS tblpo_po_date,
+     tblpo.`po_terms` AS tblpo_po_terms,
+     tblpo.`date_modified` AS tblpo_date_modified,
+     tblpo.`reqby` AS tblpo_reqby,
+     tblpo.`prepby` AS tblpo_prepby,
+     tblpo.`noteby` AS tblpo_noteby,
+     tblpo.`approveby` AS tblpo_approveby,
+     tblpo.`purpose` AS tblpo_purpose,
+     tblpo.`status` AS tblpo_status,
+tblpo.`note` AS tblpo_note,
+     tblpo_items.`id` AS tblpo_items_id,
+     tblpo_items.`po_no` AS tblpo_items_po_no,
+     tblpo_items.`po_qty` AS tblpo_items_po_qty,
+     tblpo_items.`po_unit` AS tblpo_items_po_unit,
+     tblpo_items.`po_desc` AS tblpo_items_po_desc,
+     tblpo_items.`po_up` AS tblpo_items_po_up,
+     tblpo_items.`po_amount` AS tblpo_items_po_amount,
+     tblpo_items.`date_modified` AS tblpo_items_date_modified,
+     tblpo_items.`status` AS tblpo_items_status
+FROM
+     `tblpo_items` tblpo_items INNER JOIN `tblpo` tblpo ON tblpo_items.`po_no` = tblpo.`po_no` where tblpo.`po_no` = $P{po_no} and tblpo_items.`status` = 1]]>
+	</queryString>
+	<field name="tblpo_id" class="java.lang.Integer"/>
+	<field name="tblpo_po_no" class="java.lang.String"/>
+	<field name="tblpo_po_name" class="java.lang.String"/>
+	<field name="tblpo_po_addr" class="java.lang.String"/>
+	<field name="tblpo_po_date" class="java.sql.Date"/>
+	<field name="tblpo_po_terms" class="java.lang.String"/>
+	<field name="tblpo_date_modified" class="java.sql.Date"/>
+	<field name="tblpo_reqby" class="java.lang.String"/>
+	<field name="tblpo_prepby" class="java.lang.String"/>
+	<field name="tblpo_noteby" class="java.lang.String"/>
+	<field name="tblpo_approveby" class="java.lang.String"/>
+	<field name="tblpo_purpose" class="java.lang.String"/>
+	<field name="tblpo_status" class="java.lang.Integer"/>
+	<field name="tblpo_note" class="java.lang.String"/>
+	<field name="tblpo_items_id" class="java.lang.Integer"/>
+	<field name="tblpo_items_po_no" class="java.lang.String"/>
+	<field name="tblpo_items_po_qty" class="java.lang.Integer"/>
+	<field name="tblpo_items_po_unit" class="java.lang.String"/>
+	<field name="tblpo_items_po_desc" class="java.lang.String"/>
+	<field name="tblpo_items_po_up" class="java.lang.Double"/>
+	<field name="tblpo_items_po_amount" class="java.lang.Double"/>
+	<field name="tblpo_items_date_modified" class="java.sql.Date"/>
+	<field name="tblpo_items_status" class="java.lang.Integer"/>
+	<variable name="tblpo_items_po_amount_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{tblpo_items_po_amount}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="138" splitType="Stretch">
+			<textField>
+				<reportElement x="112" y="103" width="244" height="20" uuid="7e765ebf-350e-40e3-a3da-93331ece4d68"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{tblpo_po_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="89" y="123" width="244" height="15" uuid="938867ab-90f8-4ff3-8045-116554c6df3e"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{tblpo_po_addr}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement x="426" y="103" width="122" height="20" uuid="f06a0634-4bd4-4474-9f83-048b03e8664a"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{tblpo_po_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="426" y="121" width="122" height="15" uuid="8d922ffa-0ae3-4c00-a2df-ab78bdb55776"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{tblpo_po_terms}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="37" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="19" y="0" width="44" height="15" uuid="6c922ee8-dfa0-40f9-8d33-ee5eb7ed02c2"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{tblpo_items_po_qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="72" y="0" width="48" height="15" uuid="3ec51c82-f469-4c21-9595-5e9b3ba81f09"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{tblpo_items_po_unit}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="">
+				<reportElement stretchType="RelativeToTallestObject" x="139" y="0" width="220" height="15" uuid="93d8b566-d623-4e43-b736-b40f7448ee54"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{tblpo_items_po_desc}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement stretchType="RelativeToTallestObject" x="485" y="0" width="61" height="15" uuid="35cc4b61-b550-425a-b97e-c0867b5cceaa"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{tblpo_items_po_amount}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement stretchType="RelativeToTallestObject" x="383" y="0" width="76" height="15" uuid="2626959b-3ad9-4396-8186-5f207276c9a7"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{tblpo_items_po_up}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="25" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="66" y="0" width="396" height="15" isRemoveLineWhenBlank="true" forecolor="#990000" uuid="eb9ea2a9-6ad8-4732-a2f1-00b374094887"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{tblpo_note}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="25" y="0" width="41" height="15" uuid="0764ce2a-e13f-4700-90a7-5c4a3b9a3b0c"/>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom"/>
+				<text><![CDATA[NOTE:]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="71" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" isPrintRepeatedValues="false" mode="Transparent" x="376" y="22" width="150" height="20" isPrintWhenDetailOverflows="true" uuid="9e371352-e453-49a4-b6a7-646a376814db"/>
+				<textElement verticalAlignment="Bottom">
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpo_noteby}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" isPrintRepeatedValues="false" mode="Transparent" x="85" y="38" width="268" height="20" isPrintWhenDetailOverflows="true" uuid="bb52b29f-b36a-4cc7-8456-c7189c786079"/>
+				<textElement verticalAlignment="Bottom">
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpo_prepby}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" isPrintRepeatedValues="false" mode="Transparent" x="376" y="38" width="150" height="20" isPrintWhenDetailOverflows="true" uuid="2a950973-0e8e-44de-a55f-cefde9b6a73a"/>
+				<textElement verticalAlignment="Bottom">
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpo_approveby}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" isPrintRepeatedValues="false" mode="Transparent" x="85" y="22" width="268" height="20" isPrintWhenDetailOverflows="true" uuid="a7acc1ad-e959-4dc1-a78f-a19b4bf08420"/>
+				<textElement verticalAlignment="Bottom">
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpo_reqby}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" isPrintRepeatedValues="false" mode="Transparent" x="75" y="-1" width="268" height="20" uuid="b0fba894-bd86-47b9-bac1-fbbb7fa1ffce"/>
+				<textElement verticalAlignment="Bottom">
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpo_purpose}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="490" y="-19" width="61" height="20" forecolor="#990000" uuid="6c4bacca-7137-4e08-93c0-09349ec76558"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$V{tblpo_items_po_amount_1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="256" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" isPrintRepeatedValues="false" mode="Transparent" x="85" y="23" width="268" height="20" isPrintWhenDetailOverflows="true" uuid="09b01a80-7554-440b-a955-61e146d61f54"/>
+				<textElement verticalAlignment="Bottom">
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpo_reqby}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" isPrintRepeatedValues="false" mode="Transparent" x="376" y="23" width="150" height="20" isPrintWhenDetailOverflows="true" uuid="0dd51fd1-2bf8-4d76-9491-70e29626de0a"/>
+				<textElement verticalAlignment="Bottom">
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpo_noteby}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" isPrintRepeatedValues="false" mode="Transparent" x="85" y="39" width="268" height="20" isPrintWhenDetailOverflows="true" uuid="e4fabcb6-c8c9-4fe8-9dae-470dddd8b812"/>
+				<textElement verticalAlignment="Bottom">
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpo_prepby}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" isPrintRepeatedValues="false" mode="Transparent" x="75" y="0" width="268" height="20" uuid="62efa156-a520-42a5-9ea5-a4084421e409"/>
+				<textElement verticalAlignment="Bottom">
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpo_purpose}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="FixRelativeToBottom" isPrintRepeatedValues="false" mode="Transparent" x="376" y="39" width="150" height="20" isPrintWhenDetailOverflows="true" uuid="2fc7edbe-7f4c-4280-8204-efb053b604fd"/>
+				<textElement verticalAlignment="Bottom">
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpo_approveby}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

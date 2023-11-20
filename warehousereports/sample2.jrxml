@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sample2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6d05c41b-31e2-4fa4-b66e-64f0daa31842">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="id" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     item.`MyID` AS item_MyID,
+     item.`ListID` AS item_ListID,
+     item.`TimeCreated` AS item_TimeCreated,
+     item.`TimeModified` AS item_TimeModified,
+     item.`EditSequence` AS item_EditSequence,
+     item.`Name` AS item_Name,
+     item.`FullName` AS item_FullName,
+     item.`BarCodeValue` AS item_BarCodeValue,
+     item.`Description` AS item_Description,
+     item.`UnitOfMeasureSetRefListID` AS item_UnitOfMeasureSetRefListID,
+     item.`UnitOfMeasureSetRefFullName` AS item_UnitOfMeasureSetRefFullName
+FROM
+     `item` item WHERE item.`MyID` = $P{id}]]>
+	</queryString>
+	<field name="item_MyID" class="java.lang.Integer"/>
+	<field name="item_ListID" class="java.lang.String"/>
+	<field name="item_TimeCreated" class="java.lang.String"/>
+	<field name="item_TimeModified" class="java.lang.String"/>
+	<field name="item_EditSequence" class="java.lang.String"/>
+	<field name="item_Name" class="java.lang.String"/>
+	<field name="item_FullName" class="java.lang.String"/>
+	<field name="item_BarCodeValue" class="java.lang.String"/>
+	<field name="item_Description" class="java.lang.String"/>
+	<field name="item_UnitOfMeasureSetRefListID" class="java.lang.String"/>
+	<field name="item_UnitOfMeasureSetRefFullName" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="48" y="2" width="100" height="20" uuid="c131fe91-c457-4d53-ae44-a212afc6cfa6"/>
+				<text><![CDATA[item_MyID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="185" y="2" width="100" height="20" uuid="7babe923-1378-45f0-97d5-4619b765d7cb"/>
+				<text><![CDATA[item_ListID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="317" y="2" width="100" height="20" uuid="99d9c375-1e3d-411b-af45-baa954a904d5"/>
+				<text><![CDATA[item_TimeCreated]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="439" y="2" width="100" height="20" uuid="53193538-6853-4de4-bf18-ecd78dd9bee8"/>
+				<text><![CDATA[item_Description]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="48" y="12" width="100" height="20" uuid="e48d8d8c-17bc-44d0-82d7-1476945258cc"/>
+				<textFieldExpression><![CDATA[$F{item_MyID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="16" width="100" height="20" uuid="464323a7-38b5-430e-975e-3feb4c1acce6"/>
+				<textFieldExpression><![CDATA[$F{item_ListID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="22" width="100" height="20" uuid="11c8fa55-243e-4bad-9575-b6905f64d9d1"/>
+				<textFieldExpression><![CDATA[$F{item_TimeCreated}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="439" y="22" width="100" height="20" uuid="3eec251d-f517-4a04-bfe7-31d7bf3714ac"/>
+				<textFieldExpression><![CDATA[$F{item_Description}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

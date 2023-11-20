@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="mwrf_new2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="76a50af5-2bc0-428b-b553-c11bed8a16e3">
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     tblrequestmaterials.`MaterialsID` AS tblrequestmaterials_MaterialsID,
+     tblrequestmaterials.`MWRFID` AS tblrequestmaterials_MWRFID,
+     tblrequestmaterials.`Materials` AS tblrequestmaterials_Materials,
+     tblrequestmaterials.`Quantity` AS tblrequestmaterials_Quantity,
+     tblrequestmaterials.`UnitPrice` AS tblrequestmaterials_UnitPrice,
+     tblrequestmaterials.`Shop` AS tblrequestmaterials_Shop,
+     tblrequestmaterials.`CheckByLogistics` AS tblrequestmaterials_CheckByLogistics,
+     tblrequestmaterials.`Verified` AS tblrequestmaterials_Verified,
+     tblrequestmaterials.`PropertyType` AS tblrequestmaterials_PropertyType,
+     tblrequestmaterials.`PlateNo` AS tblrequestmaterials_PlateNo,
+     tblrequestmaterials.`MWRFNo` AS tblrequestmaterials_MWRFNo,
+     tblrequestmaterials.`RequestType` AS tblrequestmaterials_RequestType,
+     tblrequestmaterials.`RRNo` AS tblrequestmaterials_RRNo,
+     tblrequestmaterials.`Amount` AS tblrequestmaterials_Amount,
+     tblrequestmaterials.`isdelete` AS tblrequestmaterials_isdelete
+FROM
+     `tblrequestmaterials` tblrequestmaterials]]>
+	</queryString>
+	<field name="tblrequestmaterials_MaterialsID" class="java.lang.Integer"/>
+	<field name="tblrequestmaterials_MWRFID" class="java.lang.Integer"/>
+	<field name="tblrequestmaterials_Materials" class="java.lang.String"/>
+	<field name="tblrequestmaterials_Quantity" class="java.math.BigDecimal"/>
+	<field name="tblrequestmaterials_UnitPrice" class="java.math.BigDecimal"/>
+	<field name="tblrequestmaterials_Shop" class="java.lang.String"/>
+	<field name="tblrequestmaterials_CheckByLogistics" class="java.lang.Boolean"/>
+	<field name="tblrequestmaterials_Verified" class="java.lang.Boolean"/>
+	<field name="tblrequestmaterials_PropertyType" class="java.lang.String"/>
+	<field name="tblrequestmaterials_PlateNo" class="java.lang.String"/>
+	<field name="tblrequestmaterials_MWRFNo" class="java.lang.String"/>
+	<field name="tblrequestmaterials_RequestType" class="java.lang.String"/>
+	<field name="tblrequestmaterials_RRNo" class="java.lang.String"/>
+	<field name="tblrequestmaterials_Amount" class="java.math.BigDecimal"/>
+	<field name="tblrequestmaterials_isdelete" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<image>
+				<reportElement x="456" y="0" width="99" height="132" uuid="ea462c03-ccaf-43bd-98d7-d3840a44c7ae"/>
+				<imageExpression><![CDATA["cherry.jpg"]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="451" height="95" backcolor="#000000" uuid="f7b05fbf-4a42-4468-aff0-a40901bca0d9"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="f7a1435f-26f5-4702-aaba-c0ecc8513a61"/>
+					<textElement>
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Cherry Title]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="157" y="66" width="249" height="29" uuid="1a28b021-3435-418b-83f5-e783096b0a8a"/>
+					<textElement>
+						<font size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Cherry SubTitle]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="100" width="451" height="32" forecolor="#000000" backcolor="#CC0000" uuid="5e2dc146-739e-4d92-87a8-55af003dd531"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="307" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="b7caab81-0c0d-4435-b1e7-04888aff1803"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="7" width="37" height="18" forecolor="#000000" uuid="75a27c01-7c84-46ef-9440-40b1eb4276c1"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[tblrequestmaterials_MaterialsID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="37" y="7" width="37" height="18" forecolor="#000000" uuid="168791b5-83d3-4724-ac79-7f5e8a187df9"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[tblrequestmaterials_MWRFID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="74" y="7" width="37" height="18" forecolor="#000000" uuid="54cae466-05d6-4816-8651-6dc7f13343e5"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[tblrequestmaterials_Materials]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="111" y="7" width="37" height="18" forecolor="#000000" uuid="33ee878a-fa16-470b-875f-c726a827a226"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[tblrequestmaterials_Quantity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="148" y="7" width="37" height="18" forecolor="#000000" uuid="adb79b17-2d26-44ac-8584-4b2f1e45ead1"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[tblrequestmaterials_UnitPrice]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="185" y="7" width="37" height="18" forecolor="#000000" uuid="1ee1974a-055a-4ed2-aa8b-6b4ab3ad7fe4"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[tblrequestmaterials_Shop]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="222" y="7" width="37" height="18" forecolor="#000000" uuid="1be57de5-c24f-4c67-95d8-974c74ff7215"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[tblrequestmaterials_CheckByLogistics]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="259" y="7" width="37" height="18" forecolor="#000000" uuid="86b24000-a8d4-4ebf-bfaa-da367e009b84"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[tblrequestmaterials_Verified]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="296" y="7" width="37" height="18" forecolor="#000000" uuid="1e27773e-eb09-4a77-858d-a0be5aeb51fb"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[tblrequestmaterials_PropertyType]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="333" y="7" width="37" height="18" forecolor="#000000" uuid="d922107a-2f40-40ea-9609-503b4650ffa1"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[tblrequestmaterials_PlateNo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="370" y="7" width="37" height="18" forecolor="#000000" uuid="084f1902-858a-47df-bab1-a526579033a0"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[tblrequestmaterials_MWRFNo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="407" y="7" width="37" height="18" forecolor="#000000" uuid="a5e06d5c-7e10-45e8-96c0-0c7370e40a5c"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[tblrequestmaterials_RequestType]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="444" y="7" width="37" height="18" forecolor="#000000" uuid="79493ad5-8e66-4c02-aaa4-c6dd4860ea25"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[tblrequestmaterials_RRNo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="481" y="7" width="37" height="18" forecolor="#000000" uuid="98737347-2e9a-4eaf-947b-4411fb71b46f"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[tblrequestmaterials_Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="518" y="7" width="37" height="18" forecolor="#000000" uuid="ac87e1db-7736-4cb0-91a5-870904aa1a4e"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[tblrequestmaterials_isdelete]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="18" uuid="b551af91-b033-4471-ad55-7e64fb37ea93"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="37" height="18" uuid="416547e6-22dc-4ad9-9c48-30269bdb2022"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblrequestmaterials_MaterialsID}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="37" y="0" width="37" height="18" uuid="113bdeef-72c7-4a61-8b39-1aec29f2f3e6"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblrequestmaterials_MWRFID}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="74" y="0" width="37" height="18" uuid="13ac3f82-41b7-497c-ab49-b77145ce34fc"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblrequestmaterials_Materials}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="111" y="0" width="37" height="18" uuid="06a98e06-a0fb-403f-8e09-2bc8e22b2130"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblrequestmaterials_Quantity}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="148" y="0" width="37" height="18" uuid="0ec9fada-1aa6-4dd1-91c8-13df61d59891"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblrequestmaterials_UnitPrice}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="185" y="0" width="37" height="18" uuid="2cc5d3b0-a644-4406-ab7b-cc7a18f876ec"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblrequestmaterials_Shop}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="222" y="0" width="37" height="18" uuid="bfcf69a6-1ae3-4b79-8c9f-a08133523156"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblrequestmaterials_CheckByLogistics}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="259" y="0" width="37" height="18" uuid="d64b8646-8741-4ea1-90fd-57a33b0e53b0"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblrequestmaterials_Verified}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="296" y="0" width="37" height="18" uuid="3d3cafc3-bab8-48cf-b499-1fbc31ba8524"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblrequestmaterials_PropertyType}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="333" y="0" width="37" height="18" uuid="3cb6a1d6-9516-4578-b5d2-67119288ec30"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblrequestmaterials_PlateNo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="370" y="0" width="37" height="18" uuid="0389da89-f7ef-4c7d-9818-61998663ca6f"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblrequestmaterials_MWRFNo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="407" y="0" width="37" height="18" uuid="3b80e873-851b-498a-aeec-2408c56d8f26"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblrequestmaterials_RequestType}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="444" y="0" width="37" height="18" uuid="dc247643-4b25-4abe-96fc-7c9b7f78c3b6"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblrequestmaterials_RRNo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="481" y="0" width="37" height="18" uuid="275df88c-199e-433c-824b-b9e620bec3d7"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblrequestmaterials_Amount}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="518" y="0" width="37" height="18" uuid="ce9d689a-d245-420d-a1d7-42779c151a2c"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblrequestmaterials_isdelete}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="93b37457-f67f-4291-852b-3845b2459874"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#000000" uuid="d71e9c1e-170e-4f7b-8675-13cb6b1c22e0"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" uuid="2e633645-a32f-400f-959d-a54756439116"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="c5d30dde-cea3-4e13-a1e2-3e3c05ac3d6b"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="1" width="197" height="20" forecolor="#FFFFFF" uuid="83badc72-1842-4671-9c0e-2843b1bc384b"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

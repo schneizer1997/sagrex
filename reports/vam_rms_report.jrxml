@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="vam_rms_report" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="78035a67-ca8b-4815-8043-359c367f7db6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="datefrom" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dateto" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="datefromrange" class="java.lang.String"/>
+	<parameter name="datetorange" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     vehicle_rms_info.`vehinfo_rms_id` AS vehicle_rms_info_vehinfo_rms_id,
+     vehicle_rms_info.`plate_id` AS vehicle_rms_info_plate_id,
+     vehicle_rms_info.`assign_name` AS vehicle_rms_info_assign_name,
+     vehicle_rms_info.`repairetype` AS vehicle_rms_info_repairetype,
+     vehicle_rms_info.`descr` AS vehicle_rms_info_descr,
+     vehicle_rms_info.`brand` AS vehicle_rms_info_brand,
+     vehicle_rms_info.`qty` AS vehicle_rms_info_qty,
+     vehicle_rms_info.`unit` AS vehicle_rms_info_unit,
+     vehicle_rms_info.`price` AS vehicle_rms_info_price,
+     vehicle_rms_info.`amount` AS vehicle_rms_info_amount,
+     vehicle_rms_info.`supp_name` AS vehicle_rms_info_supp_name,
+     vehicle_rms_info.`address` AS vehicle_rms_info_address,
+     vehicle_rms_info.`rf_no` AS vehicle_rms_info_rf_no,
+     vehicle_rms_info.`daterfno` AS vehicle_rms_info_daterfno,
+     vehicle_rms_info.`po_no` AS vehicle_rms_info_po_no,
+     vehicle_rms_info.`po_date` AS vehicle_rms_info_po_date,
+     vehicle_rms_info.`req_by` AS vehicle_rms_info_req_by,
+     vehicle_rms_info.`ref_no` AS vehicle_rms_info_ref_no,
+     vehicle_rms_info.`daterefno` AS vehicle_rms_info_daterefno,
+     vehicle_rms_info.`cvjv` AS vehicle_rms_info_cvjv,
+     vehicle_rms_info.`other_ref` AS vehicle_rms_info_other_ref,
+     vehicle_rms_info.`remarks` AS vehicle_rms_info_remarks,
+     vehicle_rms_info.`status` AS vehicle_rms_info_status,
+     plates.`plate_id` AS plates_plate_id,
+     plates.`plate_no` AS plates_plate_no,
+     plates.`status` AS plates_status
+FROM
+     `plates` plates INNER JOIN `vehicle_rms_info` vehicle_rms_info ON plates.`plate_id` = vehicle_rms_info.`plate_id`
+WHERE vehicle_rms_info.`daterefno` BETWEEN $P{datefrom} AND $P{dateto} ORDER BY plates.`plate_no`]]>
+	</queryString>
+	<field name="vehicle_rms_info_vehinfo_rms_id" class="java.lang.Integer"/>
+	<field name="vehicle_rms_info_plate_id" class="java.lang.Integer"/>
+	<field name="vehicle_rms_info_assign_name" class="java.lang.String"/>
+	<field name="vehicle_rms_info_repairetype" class="java.lang.String"/>
+	<field name="vehicle_rms_info_descr" class="java.lang.String"/>
+	<field name="vehicle_rms_info_brand" class="java.lang.String"/>
+	<field name="vehicle_rms_info_qty" class="java.lang.Double"/>
+	<field name="vehicle_rms_info_unit" class="java.lang.String"/>
+	<field name="vehicle_rms_info_price" class="java.lang.Double"/>
+	<field name="vehicle_rms_info_amount" class="java.lang.Double"/>
+	<field name="vehicle_rms_info_supp_name" class="java.lang.String"/>
+	<field name="vehicle_rms_info_address" class="java.lang.String"/>
+	<field name="vehicle_rms_info_rf_no" class="java.lang.String"/>
+	<field name="vehicle_rms_info_daterfno" class="java.sql.Date"/>
+	<field name="vehicle_rms_info_po_no" class="java.lang.String"/>
+	<field name="vehicle_rms_info_po_date" class="java.sql.Date"/>
+	<field name="vehicle_rms_info_req_by" class="java.lang.String"/>
+	<field name="vehicle_rms_info_ref_no" class="java.lang.String"/>
+	<field name="vehicle_rms_info_daterefno" class="java.sql.Date"/>
+	<field name="vehicle_rms_info_cvjv" class="java.lang.String"/>
+	<field name="vehicle_rms_info_other_ref" class="java.lang.String"/>
+	<field name="vehicle_rms_info_remarks" class="java.lang.String"/>
+	<field name="vehicle_rms_info_status" class="java.lang.Integer"/>
+	<field name="plates_plate_id" class="java.lang.Integer"/>
+	<field name="plates_plate_no" class="java.lang.String"/>
+	<field name="plates_status" class="java.lang.Integer"/>
+	<variable name="vehicle_rms_info_amount_1" class="java.lang.Double" resetType="Group" resetGroup="groupbyplateno" calculation="Sum">
+		<variableExpression><![CDATA[$F{vehicle_rms_info_amount}]]></variableExpression>
+	</variable>
+	<variable name="vehicle_rms_info_amount_2" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{vehicle_rms_info_amount}]]></variableExpression>
+	</variable>
+	<group name="groupbyplateno">
+		<groupExpression><![CDATA[$F{plates_plate_no}]]></groupExpression>
+		<groupHeader>
+			<band height="16">
+				<textField>
+					<reportElement x="0" y="0" width="100" height="15" uuid="22a1ca47-5114-452e-acbe-b64fa7fbf28c"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{plates_plate_no}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="21">
+				<textField>
+					<reportElement x="390" y="0" width="72" height="20" forecolor="#CC0000" uuid="6bb370b0-00e3-48b1-ab21-43db9ae72db7"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{vehicle_rms_info_amount_1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="752" height="34" uuid="3e185f27-8287-42dc-adc7-0b0d304b17a1"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPAIRS AND MAINTENANCE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="34" width="752" height="32" uuid="728235f2-4742-45a6-a9c6-ac6b4cf6d5a3"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPAIRS / MACHINING / SERVICING]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="15" width="59" height="20" uuid="5f6f591c-83c2-445d-ab60-257ecb81f861"/>
+				<textFieldExpression><![CDATA[$P{datefromrange}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="73" y="15" width="76" height="20" uuid="2b01bcb0-01f3-450a-bcf7-ebaed72cd9a3"/>
+				<textFieldExpression><![CDATA[$P{datetorange}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="59" y="13" width="14" height="20" uuid="c32830bf-7eb2-47cb-b4b6-a9680589a9ee"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="18" y="2" width="68" height="20" uuid="e8a165a0-fbb3-49b0-aee2-8e3f22bb8407"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ASSIGNEE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="86" y="2" width="74" height="20" uuid="4e56775c-bbe6-4416-b7dd-61ed27cd4ea2"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPAIR TYPE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="2" width="67" height="20" uuid="3819ece5-425b-40e6-88cd-3bd73b06ef8f"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCRIPTION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="227" y="2" width="41" height="20" uuid="42542a45-56b3-4790-8fce-e3b6269a7592"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[QTY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="268" y="2" width="49" height="20" uuid="c4628180-f9d8-430b-b415-cf909a6de4fc"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="465" y="2" width="81" height="20" uuid="477db7a7-de5a-440f-927b-2d44ff3a61f3"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SHOP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="317" y="2" width="73" height="20" uuid="36253b12-c33f-4733-bb8b-f152206ff7ce"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRICE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="2" width="75" height="20" uuid="3deb67c1-8277-4aef-b43d-ea7d203256a8"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AMOUNT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="546" y="2" width="100" height="20" uuid="931b9737-7e7b-4788-9b11-73a50b38e19d"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ADDRESS]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="21" width="752" height="1" uuid="c1631b50-5c1f-4bc0-a8ca-6b25fc25408a"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="18" y="2" width="68" height="20" uuid="e870b74d-dc20-4aca-a81f-db957750ae71"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicle_rms_info_assign_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="86" y="2" width="74" height="20" uuid="3b74cc7a-e65d-42ba-99a7-98c7fa65c89b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicle_rms_info_repairetype}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="2" width="67" height="20" uuid="6e124a69-d908-47c0-8769-848a51c03114"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicle_rms_info_descr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="227" y="2" width="41" height="20" uuid="4d842876-842b-4212-b035-8c4c27804cc7"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicle_rms_info_qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="268" y="2" width="49" height="20" uuid="95f28137-298c-483e-b6a8-a19305db4f08"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicle_rms_info_unit}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="317" y="2" width="73" height="20" uuid="d5f0b949-ce1b-449c-b0de-b18b7043db1b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicle_rms_info_price}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="390" y="2" width="75" height="20" uuid="3a0af042-eb7e-4bde-ba8e-d3fd4dbc356c"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicle_rms_info_amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="465" y="2" width="81" height="20" uuid="c581a306-b8ca-452b-be6c-9643d191b060"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicle_rms_info_supp_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="546" y="2" width="100" height="20" uuid="316f6aca-f3c8-43d7-b228-3091ad9e2e42"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicle_rms_info_address}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="5" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="5" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="22" splitType="Stretch">
+			<textField pattern="#,##0.00">
+				<reportElement x="546" y="0" width="100" height="20" forecolor="#CC0000" uuid="2db23fc9-6733-4f12-8ab7-8deb4f22ce43"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{vehicle_rms_info_amount_2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="446" y="0" width="100" height="20" uuid="bddaf04b-671e-42f7-8b9c-8ac01d6539ba"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[GRAND TOTAL:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

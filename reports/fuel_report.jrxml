@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="fuel_report" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="992b4dfb-78f5-4e22-8065-7a4797f57a2b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="8"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="datefrom" class="java.sql.Time">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dateto" class="java.sql.Time">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="datefromrange" class="java.lang.String"/>
+	<parameter name="datetorange" class="java.lang.String"/>
+	<parameter name="plateno" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="descr" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     fuel_info.`fuel_info_id` AS fuel_info_fuel_info_id,
+     fuel_info.`plate_id` AS fuel_info_plate_id,
+     fuel_info.`assign` AS fuel_info_assign,
+     fuel_info.`fuel_name` AS fuel_info_fuel_name,
+     cast(fuel_info.`qty` as double(10,2)) AS fuel_info_qty,
+     fuel_info.`price` AS fuel_info_price,
+     fuel_info.`amount` AS fuel_info_amount,
+     fuel_info.`supp_name` AS fuel_info_supp_name,
+     fuel_info.`model` AS fuel_info_model,
+     fuel_info.`rf_no` AS fuel_info_rf_no,
+     fuel_info.`daterfno` AS fuel_info_daterfno,
+     fuel_info.`po_no` AS fuel_info_po_no,
+     fuel_info.`po_date` AS fuel_info_po_date,
+     fuel_info.`req_by` AS fuel_info_req_by,
+     fuel_info.`ref_no` AS fuel_info_ref_no,
+     fuel_info.`daterefno` AS fuel_info_daterefno,
+     fuel_info.`cvjv` AS fuel_info_cvjv,
+     fuel_info.`other_ref` AS fuel_info_other_ref,
+     fuel_info.`remarks` AS fuel_info_remarks,
+     fuel_info.`descr` AS fuel_info_descr,
+     fuel_info.`status` AS fuel_info_status,
+     plates.`plate_id` AS plates_plate_id,
+     plates.`plate_no` AS plates_plate_no,
+     plates.`status` AS plates_status
+FROM
+     `plates` plates RIGHT JOIN `fuel_info` fuel_info ON plates.`plate_id` = fuel_info.`plate_id`
+WHERE
+     fuel_info.`descr` = $P{descr} AND fuel_info.`daterefno` BETWEEN $P{datefrom} AND $P{dateto} ORDER BY plates.`plate_no`]]>
+	</queryString>
+	<field name="fuel_info_fuel_info_id" class="java.lang.Integer"/>
+	<field name="fuel_info_plate_id" class="java.lang.Integer"/>
+	<field name="fuel_info_assign" class="java.lang.String"/>
+	<field name="fuel_info_fuel_name" class="java.lang.String"/>
+	<field name="fuel_info_qty" class="java.lang.Double"/>
+	<field name="fuel_info_price" class="java.lang.Double"/>
+	<field name="fuel_info_amount" class="java.lang.Double"/>
+	<field name="fuel_info_supp_name" class="java.lang.String"/>
+	<field name="fuel_info_model" class="java.lang.String"/>
+	<field name="fuel_info_rf_no" class="java.lang.String"/>
+	<field name="fuel_info_daterfno" class="java.sql.Date"/>
+	<field name="fuel_info_po_no" class="java.lang.String"/>
+	<field name="fuel_info_po_date" class="java.sql.Date"/>
+	<field name="fuel_info_req_by" class="java.lang.String"/>
+	<field name="fuel_info_ref_no" class="java.lang.String"/>
+	<field name="fuel_info_daterefno" class="java.sql.Date"/>
+	<field name="fuel_info_cvjv" class="java.lang.String"/>
+	<field name="fuel_info_other_ref" class="java.lang.String"/>
+	<field name="fuel_info_remarks" class="java.lang.String"/>
+	<field name="fuel_info_descr" class="java.lang.String"/>
+	<field name="fuel_info_status" class="java.lang.Integer"/>
+	<field name="plates_plate_id" class="java.lang.Integer"/>
+	<field name="plates_plate_no" class="java.lang.String"/>
+	<field name="plates_status" class="java.lang.Integer"/>
+	<variable name="fuel_info_amount_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{fuel_info_amount}]]></variableExpression>
+	</variable>
+	<variable name="fuel_info_amount_2" class="java.lang.Double" resetType="Group" resetGroup="plate_no_group" calculation="Sum">
+		<variableExpression><![CDATA[$F{fuel_info_amount}]]></variableExpression>
+	</variable>
+	<variable name="fuel_info_qty_1" class="java.lang.Double" resetType="Group" resetGroup="plate_no_group" calculation="Sum">
+		<variableExpression><![CDATA[$F{fuel_info_qty}]]></variableExpression>
+	</variable>
+	<group name="plates_plate_no">
+		<groupExpression><![CDATA[$F{plates_plate_no}]]></groupExpression>
+	</group>
+	<group name="plate_no_group">
+		<groupExpression><![CDATA[$F{plates_plate_no}]]></groupExpression>
+		<groupHeader>
+			<band height="16">
+				<textField>
+					<reportElement x="0" y="0" width="100" height="16" uuid="20908340-86ea-479d-a6cf-0882026ac575"/>
+					<textFieldExpression><![CDATA[$F{plates_plate_no}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="19">
+				<textField pattern="#,##0.00">
+					<reportElement x="660" y="0" width="89" height="19" forecolor="#CC0000" uuid="48a97e81-776f-46c4-882a-1626817102fa"/>
+					<textFieldExpression><![CDATA[$V{fuel_info_amount_2}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement x="341" y="2" width="100" height="16" forecolor="#CC0000" uuid="985661e3-7e86-43f7-8293-8d4f28109774"/>
+					<textFieldExpression><![CDATA[$V{fuel_info_qty_1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="752" height="47" uuid="d3578534-94a6-4734-9834-64fefe0112bd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="36" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FUEL REPORT]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="47" width="752" height="32" uuid="15c8fa93-da97-4422-8f00-1b7bfede8f0a"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fuel_info_descr}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="15" width="52" height="20" uuid="7b7ba88a-7b29-406d-84cd-6459febc1809"/>
+				<textFieldExpression><![CDATA[$P{datefromrange}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="64" y="15" width="100" height="20" uuid="aab842ed-8fed-4abf-908f-0276492c51c6"/>
+				<textFieldExpression><![CDATA[$P{datetorange}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="52" y="13" width="12" height="20" uuid="c55a6f46-9fa9-4a5d-b189-fb5cd7f265c1"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="52" y="2" width="100" height="20" uuid="4b405d82-e3e9-4de4-8fae-eca093839eee"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ASSIGNEE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="205" y="2" width="100" height="20" uuid="edac21e4-8991-4969-b206-17b8aebb4602"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FUEL NAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="338" y="2" width="100" height="20" uuid="fec7a297-cf7e-4195-a51c-70cf055e53c0"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[QTY/LTRS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="493" y="2" width="100" height="20" uuid="d027dec9-6487-4aeb-ab9f-2dff3361d3f9"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRICE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="649" y="2" width="100" height="20" uuid="b827d3bf-d0d2-4511-af8b-6db66168c5ff"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AMOUNT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="2" width="64" height="16" uuid="53ca1b9b-5572-4fc5-b73c-0e7ce158f538"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PLATE NO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="22" width="749" height="1" uuid="36e1bffd-b2dd-4d87-8daf-00da523b1e8c"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<textField>
+				<reportElement x="74" y="0" width="100" height="16" uuid="40fcea34-c37e-41bd-877a-177d7b434dc9"/>
+				<textFieldExpression><![CDATA[$F{fuel_info_assign}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="341" y="1" width="100" height="16" uuid="39ef6a7d-58b7-4c17-944e-22f53f57fe78"/>
+				<textFieldExpression><![CDATA[$F{fuel_info_qty}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="511" y="0" width="100" height="16" uuid="575d28b0-2714-47b2-9751-57d15f1734b6"/>
+				<textFieldExpression><![CDATA[$F{fuel_info_price}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="660" y="0" width="89" height="16" uuid="204f46a2-1cff-4428-b682-cf6c863118cf"/>
+				<textFieldExpression><![CDATA[$F{fuel_info_amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="205" y="0" width="121" height="16" uuid="9fb28627-78d8-40b3-8903-0f0b10b1da96"/>
+				<textFieldExpression><![CDATA[$F{fuel_info_fuel_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="21" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="16" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField pattern="#,##0.00">
+				<reportElement x="660" y="0" width="89" height="20" forecolor="#CC0000" uuid="72c7912f-1e49-4e1a-8973-309e569f8bde"/>
+				<textFieldExpression><![CDATA[$V{fuel_info_amount_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="560" y="0" width="100" height="20" uuid="ee56a63d-0840-4993-8afa-9a2a5739d9bb"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[GRAND TOTAL]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="749" height="1" uuid="4970b590-a02f-4d41-81f6-251da29de225"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

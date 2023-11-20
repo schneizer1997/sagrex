@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="mwrfform" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4f376186-94aa-4c79-88e7-08317f94f3cc">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="sample" class="java.lang.String"/>
+	<parameter name="wew" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     tblrequestform.`MWRFID` AS tblrequestform_MWRFID,
+     tblrequestform.`MWRFNo` AS tblrequestform_MWRFNo,
+     tblrequestform.`RequestType` AS tblrequestform_RequestType,
+     tblrequestform.`PlateNo` AS tblrequestform_PlateNo,
+     tblrequestform.`WorkType` AS tblrequestform_WorkType,
+     tblrequestform.`WorkVenue` AS tblrequestform_WorkVenue,
+     tblrequestform.`JobClassification` AS tblrequestform_JobClassification,
+     tblrequestform.`RepairType` AS tblrequestform_RepairType,
+     tblrequestform.`PMType` AS tblrequestform_PMType,
+     tblrequestform.`ImprovementType` AS tblrequestform_ImprovementType,
+     tblrequestform.`BreakdownType` AS tblrequestform_BreakdownType,
+     tblrequestform.`CompletionTargetDate` AS tblrequestform_CompletionTargetDate,
+     tblrequestform.`TimeFile` AS tblrequestform_TimeFile,
+     tblrequestform.`DateFile` AS tblrequestform_DateFile,
+     tblrequestform.`PropertyDescription` AS tblrequestform_PropertyDescription,
+     tblrequestform.`ProblemCause` AS tblrequestform_ProblemCause,
+     tblrequestform.`CorrectiveAction` AS tblrequestform_CorrectiveAction,
+     tblrequestform.`PreventiveAction` AS tblrequestform_PreventiveAction,
+     tblrequestform.`Remarks` AS tblrequestform_Remarks,
+     tblrequestform.`RequestedBy` AS tblrequestform_RequestedBy,
+     tblrequestform.`DepartmentHeadManager` AS tblrequestform_DepartmentHeadManager,
+     tblrequestform.`Designated1` AS tblrequestform_Designated1,
+     tblrequestform.`Designated2` AS tblrequestform_Designated2,
+     tblrequestform.`Designated3` AS tblrequestform_Designated3,
+     tblrequestform.`StartTime` AS tblrequestform_StartTime,
+     tblrequestform.`StartDate` AS tblrequestform_StartDate,
+     tblrequestform.`FinishTime` AS tblrequestform_FinishTime,
+     tblrequestform.`FinishDate` AS tblrequestform_FinishDate,
+     tblrequestform.`RequestReceivedBy` AS tblrequestform_RequestReceivedBy,
+     tblrequestform.`RequestApprovedBy` AS tblrequestform_RequestApprovedBy,
+     tblrequestform.`TypeOfRequest` AS tblrequestform_TypeOfRequest,
+     tblrequestform.`TotalManHours` AS tblrequestform_TotalManHours,
+     tblrequestform.`WarehouseCheckedBy` AS tblrequestform_WarehouseCheckedBy,
+     tblrequestform.`CompletedMWRFVerifiedBy` AS tblrequestform_CompletedMWRFVerifiedBy,
+     tblrequestform.`RRNo` AS tblrequestform_RRNo,
+     tblrequestform.`DateAdded` AS tblrequestform_DateAdded,
+     tblrequestform.`DateEdited` AS tblrequestform_DateEdited,
+     tblrequestform.`MWRFStatus` AS tblrequestform_MWRFStatus,
+     tblrequestform.`Requestor` AS tblrequestform_Requestor
+FROM
+     `tblrequestform` tblrequestform
+WHERE
+     MWRFID = 1002]]>
+	</queryString>
+	<field name="tblrequestform_MWRFID" class="java.lang.Integer"/>
+	<field name="tblrequestform_MWRFNo" class="java.lang.String"/>
+	<field name="tblrequestform_RequestType" class="java.lang.String"/>
+	<field name="tblrequestform_PlateNo" class="java.lang.String"/>
+	<field name="tblrequestform_WorkType" class="java.lang.String"/>
+	<field name="tblrequestform_WorkVenue" class="java.lang.String"/>
+	<field name="tblrequestform_JobClassification" class="java.lang.String"/>
+	<field name="tblrequestform_RepairType" class="java.lang.String"/>
+	<field name="tblrequestform_PMType" class="java.lang.String"/>
+	<field name="tblrequestform_ImprovementType" class="java.lang.String"/>
+	<field name="tblrequestform_BreakdownType" class="java.lang.String"/>
+	<field name="tblrequestform_CompletionTargetDate" class="java.sql.Date"/>
+	<field name="tblrequestform_TimeFile" class="java.sql.Timestamp"/>
+	<field name="tblrequestform_DateFile" class="java.sql.Date"/>
+	<field name="tblrequestform_PropertyDescription" class="java.lang.String"/>
+	<field name="tblrequestform_ProblemCause" class="java.lang.String"/>
+	<field name="tblrequestform_CorrectiveAction" class="java.lang.String"/>
+	<field name="tblrequestform_PreventiveAction" class="java.lang.String"/>
+	<field name="tblrequestform_Remarks" class="java.lang.String"/>
+	<field name="tblrequestform_RequestedBy" class="java.lang.String"/>
+	<field name="tblrequestform_DepartmentHeadManager" class="java.lang.String"/>
+	<field name="tblrequestform_Designated1" class="java.lang.String"/>
+	<field name="tblrequestform_Designated2" class="java.lang.String"/>
+	<field name="tblrequestform_Designated3" class="java.lang.String"/>
+	<field name="tblrequestform_StartTime" class="java.sql.Timestamp"/>
+	<field name="tblrequestform_StartDate" class="java.sql.Date"/>
+	<field name="tblrequestform_FinishTime" class="java.sql.Timestamp"/>
+	<field name="tblrequestform_FinishDate" class="java.sql.Date"/>
+	<field name="tblrequestform_RequestReceivedBy" class="java.lang.String"/>
+	<field name="tblrequestform_RequestApprovedBy" class="java.lang.String"/>
+	<field name="tblrequestform_TypeOfRequest" class="java.lang.String"/>
+	<field name="tblrequestform_TotalManHours" class="java.lang.String"/>
+	<field name="tblrequestform_WarehouseCheckedBy" class="java.lang.String"/>
+	<field name="tblrequestform_CompletedMWRFVerifiedBy" class="java.lang.String"/>
+	<field name="tblrequestform_RRNo" class="java.lang.String"/>
+	<field name="tblrequestform_DateAdded" class="java.sql.Date"/>
+	<field name="tblrequestform_DateEdited" class="java.sql.Date"/>
+	<field name="tblrequestform_MWRFStatus" class="java.lang.String"/>
+	<field name="tblrequestform_Requestor" class="java.lang.String"/>
+	<variable name="wow" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="25" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="33" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="296" splitType="Stretch">
+			<textField>
+				<reportElement x="71" y="15" width="147" height="20" uuid="4071637d-9f24-4201-8662-da876ab341c2"/>
+				<textFieldExpression><![CDATA[$F{tblrequestform_MWRFNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="15" width="61" height="20" uuid="78d0ca7f-36e7-4942-80a8-0cb328bac2ee"/>
+				<text><![CDATA[MWRF No. : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="287" y="43" width="100" height="20" uuid="1e3e921e-2be8-4ffb-9806-ddb489a55101"/>
+				<textElement>
+					<font isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{sample}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="118" y="79" width="100" height="20" uuid="6f1eac31-8df9-4c7e-a613-2f2d0683524c"/>
+				<textFieldExpression><![CDATA[$V{wow}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="323" y="105" width="100" height="20" uuid="fa1a4a22-0678-459b-937e-8eab8ac356fa"/>
+				<textFieldExpression><![CDATA[$P{wew}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

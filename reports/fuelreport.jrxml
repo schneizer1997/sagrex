@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="fuelreport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cb6da30f-e885-4206-99a9-8e6226416a67">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     fuel_info.`fuel_info_id` AS fuel_info_fuel_info_id,
+     fuel_info.`plate_id` AS fuel_info_plate_id,
+     fuel_info.`assign` AS fuel_info_assign,
+     fuel_info.`fuel_name` AS fuel_info_fuel_name,
+     fuel_info.`qty` AS fuel_info_qty,
+     fuel_info.`price` AS fuel_info_price,
+     fuel_info.`amount` AS fuel_info_amount,
+     fuel_info.`supp_name` AS fuel_info_supp_name,
+     fuel_info.`model` AS fuel_info_model,
+     fuel_info.`rf_no` AS fuel_info_rf_no,
+     fuel_info.`daterfno` AS fuel_info_daterfno,
+     fuel_info.`po_no` AS fuel_info_po_no,
+     fuel_info.`req_by` AS fuel_info_req_by,
+     fuel_info.`ref_no` AS fuel_info_ref_no,
+     fuel_info.`daterefno` AS fuel_info_daterefno,
+     fuel_info.`cvjv` AS fuel_info_cvjv,
+     fuel_info.`other_ref` AS fuel_info_other_ref,
+     fuel_info.`remarks` AS fuel_info_remarks,
+     fuel_info.`descr` AS fuel_info_descr,
+     fuel_info.`status` AS fuel_info_status
+FROM
+     `fuel_info`
+]]>
+	</queryString>
+	<field name="fuel_info_fuel_info_id" class="java.lang.Integer"/>
+	<field name="fuel_info_plate_id" class="java.lang.Integer"/>
+	<field name="fuel_info_assign" class="java.lang.String"/>
+	<field name="fuel_info_fuel_name" class="java.lang.String"/>
+	<field name="fuel_info_qty" class="java.lang.String"/>
+	<field name="fuel_info_price" class="java.lang.Double"/>
+	<field name="fuel_info_amount" class="java.lang.Double"/>
+	<field name="fuel_info_supp_name" class="java.lang.String"/>
+	<field name="fuel_info_model" class="java.lang.String"/>
+	<field name="fuel_info_rf_no" class="java.lang.String"/>
+	<field name="fuel_info_daterfno" class="java.sql.Date"/>
+	<field name="fuel_info_po_no" class="java.lang.String"/>
+	<field name="fuel_info_po_date" class="java.sql.Date"/>
+	<field name="fuel_info_req_by" class="java.lang.String"/>
+	<field name="fuel_info_ref_no" class="java.lang.String"/>
+	<field name="fuel_info_daterefno" class="java.sql.Date"/>
+	<field name="fuel_info_cvjv" class="java.lang.String"/>
+	<field name="fuel_info_other_ref" class="java.lang.String"/>
+	<field name="fuel_info_remarks" class="java.lang.String"/>
+	<field name="fuel_info_descr" class="java.lang.String"/>
+	<field name="fuel_info_status" class="java.lang.Integer"/>
+	<group name="fuel_info_fuel_info_id">
+		<groupExpression><![CDATA[$F{fuel_info_fuel_info_id}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="145" y="2" width="100" height="20" uuid="f7acafb3-d4cf-486a-8f6a-328ea82bd0d9"/>
+				<text><![CDATA[fuel_info_supp_name]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="145" y="48" width="269" height="20" uuid="408eafe2-bf1b-4a32-b271-d26fb89ebd4f"/>
+				<textFieldExpression><![CDATA[$F{fuel_info_supp_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

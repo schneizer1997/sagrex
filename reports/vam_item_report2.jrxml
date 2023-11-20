@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="vam_item_report2" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5f4f6bc6-1eb7-45c8-b9d5-ea5619e4d4c0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="datefrom" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dateto" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     vehicle_info.`vehinfo_id` AS vehicle_info_vehinfo_id,
+     vehicle_info.`plate_id` AS vehicle_info_plate_id,
+     vehicle_info.`assign_name` AS vehicle_info_assign_name,
+     vehicle_info.`item` AS vehicle_info_item,
+     vehicle_info.`descr` AS vehicle_info_descr,
+     vehicle_info.`brand` AS vehicle_info_brand,
+     vehicle_info.`qty` AS vehicle_info_qty,
+     vehicle_info.`unit` AS vehicle_info_unit,
+     vehicle_info.`price` AS vehicle_info_price,
+     vehicle_info.`amount` AS vehicle_info_amount,
+     vehicle_info.`supp_name` AS vehicle_info_supp_name,
+     vehicle_info.`address` AS vehicle_info_address,
+     vehicle_info.`rf_no` AS vehicle_info_rf_no,
+     vehicle_info.`daterfno` AS vehicle_info_daterfno,
+     vehicle_info.`po_no` AS vehicle_info_po_no,
+     vehicle_info.`po_date` AS vehicle_info_po_date,
+     vehicle_info.`req_by` AS vehicle_info_req_by,
+     vehicle_info.`ref_no` AS vehicle_info_ref_no,
+     vehicle_info.`daterefno` AS vehicle_info_daterefno,
+     vehicle_info.`cvjv` AS vehicle_info_cvjv,
+     vehicle_info.`other_ref` AS vehicle_info_other_ref,
+     vehicle_info.`remarks` AS vehicle_info_remarks,
+     vehicle_info.`status` AS vehicle_info_status,
+     plates.`plate_id` AS plates_plate_id,
+     plates.`plate_no` AS plates_plate_no,
+     plates.`status` AS plates_status
+FROM
+     `plates` plates INNER JOIN `vehicle_info` vehicle_info ON plates.`plate_id` = vehicle_info.`plate_id`
+
+WHERE vehicle_info.`po_date` BETWEEN $P{datefrom} AND $P{dateto}]]>
+	</queryString>
+	<field name="vehicle_info_vehinfo_id" class="java.lang.Integer"/>
+	<field name="vehicle_info_plate_id" class="java.lang.Integer"/>
+	<field name="vehicle_info_assign_name" class="java.lang.String"/>
+	<field name="vehicle_info_item" class="java.lang.String"/>
+	<field name="vehicle_info_descr" class="java.lang.String"/>
+	<field name="vehicle_info_brand" class="java.lang.String"/>
+	<field name="vehicle_info_qty" class="java.lang.Double"/>
+	<field name="vehicle_info_unit" class="java.lang.String"/>
+	<field name="vehicle_info_price" class="java.lang.Double"/>
+	<field name="vehicle_info_amount" class="java.lang.Double"/>
+	<field name="vehicle_info_supp_name" class="java.lang.String"/>
+	<field name="vehicle_info_address" class="java.lang.String"/>
+	<field name="vehicle_info_rf_no" class="java.lang.String"/>
+	<field name="vehicle_info_daterfno" class="java.sql.Date"/>
+	<field name="vehicle_info_po_no" class="java.lang.String"/>
+	<field name="vehicle_info_po_date" class="java.sql.Date"/>
+	<field name="vehicle_info_req_by" class="java.lang.String"/>
+	<field name="vehicle_info_ref_no" class="java.lang.String"/>
+	<field name="vehicle_info_daterefno" class="java.sql.Date"/>
+	<field name="vehicle_info_cvjv" class="java.lang.String"/>
+	<field name="vehicle_info_other_ref" class="java.lang.String"/>
+	<field name="vehicle_info_remarks" class="java.lang.String"/>
+	<field name="vehicle_info_status" class="java.lang.Integer"/>
+	<field name="plates_plate_id" class="java.lang.Integer"/>
+	<field name="plates_plate_no" class="java.lang.String"/>
+	<field name="plates_status" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="117" y="2" width="100" height="20" uuid="addbb2cc-7a18-4a72-a190-4d7e87663c98"/>
+				<text><![CDATA[vehicle_info_assign_name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="237" y="2" width="100" height="20" uuid="62242ed4-5b81-4684-92f8-360759ff0d7b"/>
+				<text><![CDATA[vehicle_info_item]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="347" y="2" width="100" height="20" uuid="15185376-f3b2-4f64-a4dc-4c10ffa025d5"/>
+				<text><![CDATA[vehicle_info_descr]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="462" y="2" width="100" height="20" uuid="9099e006-6e96-4e2b-8483-fe692f28ec78"/>
+				<text><![CDATA[vehicle_info_brand]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="581" y="2" width="100" height="20" uuid="24f14a6c-c034-4ea7-ab2f-8aa4480cd8c8"/>
+				<text><![CDATA[vehicle_info_qty]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="117" y="49" width="100" height="20" uuid="e725f119-f4e1-43fe-8710-81bc8356a481"/>
+				<textFieldExpression><![CDATA[$F{vehicle_info_assign_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="237" y="57" width="100" height="20" uuid="753f718f-977b-49c9-9e8a-fdf48f1ec693"/>
+				<textFieldExpression><![CDATA[$F{vehicle_info_item}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="347" y="63" width="100" height="20" uuid="13fca984-5e1e-4ceb-b21a-a83c3c8f5a9d"/>
+				<textFieldExpression><![CDATA[$F{vehicle_info_descr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="462" y="68" width="100" height="20" uuid="682663ca-1c1e-447a-a112-ead364ed855d"/>
+				<textFieldExpression><![CDATA[$F{vehicle_info_brand}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="581" y="81" width="100" height="20" uuid="f0659b33-45bc-473e-ac6b-90633b6010e9"/>
+				<textFieldExpression><![CDATA[$F{vehicle_info_qty}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

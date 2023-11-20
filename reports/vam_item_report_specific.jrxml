@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="vam_item_report" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5244e8e3-ef81-49ec-bdb7-e8d89594ff6f">
+	<property name="ireport.zoom" value="0.9090909090909091"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="datefrom" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dateto" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="datefromrange" class="java.lang.String"/>
+	<parameter name="datetorange" class="java.lang.String"/>
+	<parameter name="platenumber" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     vehicle_info.`vehinfo_id` AS vehicle_info_vehinfo_id,
+     vehicle_info.`plate_id` AS vehicle_info_plate_id,
+     vehicle_info.`assign_name` AS vehicle_info_assign_name,
+     vehicle_info.`item` AS vehicle_info_item,
+     vehicle_info.`descr` AS vehicle_info_descr,
+     vehicle_info.`brand` AS vehicle_info_brand,
+     vehicle_info.`qty` AS vehicle_info_qty,
+     vehicle_info.`unit` AS vehicle_info_unit,
+     vehicle_info.`price` AS vehicle_info_price,
+     vehicle_info.`amount` AS vehicle_info_amount,
+     vehicle_info.`supp_name` AS vehicle_info_supp_name,
+     vehicle_info.`address` AS vehicle_info_address,
+     vehicle_info.`rf_no` AS vehicle_info_rf_no,
+     vehicle_info.`daterfno` AS vehicle_info_daterfno,
+     vehicle_info.`po_no` AS vehicle_info_po_no,
+     vehicle_info.`po_date` AS vehicle_info_po_date,
+     vehicle_info.`req_by` AS vehicle_info_req_by,
+     vehicle_info.`ref_no` AS vehicle_info_ref_no,
+     vehicle_info.`daterefno` AS vehicle_info_daterefno,
+     vehicle_info.`cvjv` AS vehicle_info_cvjv,
+     vehicle_info.`other_ref` AS vehicle_info_other_ref,
+     vehicle_info.`remarks` AS vehicle_info_remarks,
+     vehicle_info.`status` AS vehicle_info_status,
+     plates.`plate_id` AS plates_plate_id,
+     plates.`plate_no` AS plates_plate_no,
+     plates.`status` AS plates_status
+FROM
+     `plates` plates INNER JOIN `vehicle_info` vehicle_info ON plates.`plate_id` = vehicle_info.`plate_id`
+
+WHERE plates.`plate_no`= $P{platenumber}  AND vehicle_info.`daterefno`  BETWEEN $P{datefrom} AND $P{dateto} ORDER BY plates.`plate_no`]]>
+	</queryString>
+	<field name="vehicle_info_vehinfo_id" class="java.lang.Integer"/>
+	<field name="vehicle_info_plate_id" class="java.lang.Integer"/>
+	<field name="vehicle_info_assign_name" class="java.lang.String"/>
+	<field name="vehicle_info_item" class="java.lang.String"/>
+	<field name="vehicle_info_descr" class="java.lang.String"/>
+	<field name="vehicle_info_brand" class="java.lang.String"/>
+	<field name="vehicle_info_qty" class="java.lang.Double"/>
+	<field name="vehicle_info_unit" class="java.lang.String"/>
+	<field name="vehicle_info_price" class="java.lang.Double"/>
+	<field name="vehicle_info_amount" class="java.lang.Double"/>
+	<field name="vehicle_info_supp_name" class="java.lang.String"/>
+	<field name="vehicle_info_address" class="java.lang.String"/>
+	<field name="vehicle_info_rf_no" class="java.lang.String"/>
+	<field name="vehicle_info_daterfno" class="java.sql.Date"/>
+	<field name="vehicle_info_po_no" class="java.lang.String"/>
+	<field name="vehicle_info_po_date" class="java.sql.Date"/>
+	<field name="vehicle_info_req_by" class="java.lang.String"/>
+	<field name="vehicle_info_ref_no" class="java.lang.String"/>
+	<field name="vehicle_info_daterefno" class="java.sql.Date"/>
+	<field name="vehicle_info_cvjv" class="java.lang.String"/>
+	<field name="vehicle_info_other_ref" class="java.lang.String"/>
+	<field name="vehicle_info_remarks" class="java.lang.String"/>
+	<field name="vehicle_info_status" class="java.lang.Integer"/>
+	<field name="plates_plate_id" class="java.lang.Integer"/>
+	<field name="plates_plate_no" class="java.lang.String"/>
+	<field name="plates_status" class="java.lang.Integer"/>
+	<variable name="vehicle_info_amount_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{vehicle_info_amount}]]></variableExpression>
+	</variable>
+	<variable name="vehicle_info_amount_2" class="java.lang.Double" resetType="Group" resetGroup="groupbyplateno" calculation="Sum">
+		<variableExpression><![CDATA[$F{vehicle_info_amount}]]></variableExpression>
+	</variable>
+	<group name="plates_plate_no">
+		<groupExpression><![CDATA[$F{plates_plate_no}]]></groupExpression>
+	</group>
+	<group name="groupbyplateno">
+		<groupExpression><![CDATA[$F{plates_plate_no}]]></groupExpression>
+		<groupHeader>
+			<band height="16">
+				<textField>
+					<reportElement x="0" y="0" width="100" height="15" uuid="5e3765d3-34ca-4d52-8cb7-76f0297448dd"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{plates_plate_no}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="21">
+				<textField>
+					<reportElement x="522" y="0" width="63" height="20" forecolor="#CC0000" uuid="b5e45f2b-885d-4287-9f5c-d607e752da7d"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{vehicle_info_amount_2}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="164" y="3" width="425" height="38" uuid="9bc6aadf-6724-47f3-acbc-55e4c5082de4"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPAIRS AND MAINTENANCE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="281" y="41" width="249" height="38" uuid="a77a4a90-960d-4cbc-ad10-a929e0475628"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PURCHASED ITEMS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="15" width="60" height="20" uuid="bb906e04-bf22-4e4f-8f90-2204b19ca096"/>
+				<textFieldExpression><![CDATA[$P{datefromrange}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="72" y="15" width="100" height="20" uuid="5ce7f2bf-1a32-49de-b4cb-ba0c7b50dd2e"/>
+				<textFieldExpression><![CDATA[$P{datetorange}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="60" y="14" width="12" height="20" uuid="079b0894-879e-426f-8809-f8fc206dbfbc"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="41" y="2" width="76" height="20" uuid="9628bab5-02b5-4ca9-b5ae-612f5fce02d1"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ASSIGNEE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="117" y="2" width="100" height="20" uuid="23ad5435-b9b3-4db6-8877-c1378556b212"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PURCHASE ITEM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="217" y="2" width="100" height="20" uuid="c30c67ad-da41-4027-8eb3-c517441be654"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCRIPTION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="317" y="2" width="66" height="20" uuid="579c13a7-e82a-4eab-8f54-7e8de48d01e9"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BRAND]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="383" y="2" width="42" height="20" uuid="889d5f96-b739-4c6f-a136-97ac2095168c"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[QTY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="456" y="2" width="66" height="20" uuid="61ad3ea0-460f-460e-ae8f-b6cd1e1c2bc9"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRICE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="522" y="2" width="63" height="20" uuid="0c4bf3d0-105f-40a0-9f8e-f639974aefea"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AMOUNT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="585" y="2" width="67" height="20" uuid="c9474e38-dd98-47b2-9a16-5b671eaae2e9"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUPPLIER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="425" y="2" width="31" height="20" uuid="d2bad7a2-bb54-4f87-8430-3bb4c96fccef"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="652" y="2" width="100" height="20" uuid="eaac8ed8-9fce-40dd-8bc2-133fe2cb8065"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ADDRESS]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="22" width="752" height="1" uuid="6ced78ff-68a0-4f26-94aa-f692785a5a6f"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="41" y="3" width="76" height="20" uuid="7e256331-7ee4-4242-aa10-f4ce7fe0d36b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicle_info_assign_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="117" y="3" width="100" height="20" uuid="b66afded-f630-4bfe-8f8e-cfea8b5a24d5"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicle_info_item}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="217" y="3" width="100" height="20" uuid="4fa62ad9-dd1e-417d-b188-619a7a6b0709"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicle_info_descr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="3" width="66" height="20" uuid="23bcec1c-36db-47c8-a35e-1d7d876ea158"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicle_info_brand}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="383" y="3" width="42" height="20" uuid="9567a64b-61a8-478f-ad69-520025b58970"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicle_info_qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="425" y="3" width="21" height="20" uuid="fa88a968-bd01-42a2-9107-865921e8e006"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicle_info_unit}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="456" y="3" width="66" height="20" uuid="3ef84d6b-b6b1-4e4e-9377-493ab563d8a5"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicle_info_price}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="522" y="3" width="63" height="20" uuid="4a0ecf78-8792-40d3-ade4-e4be32eb62ea"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicle_info_amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="585" y="3" width="67" height="20" uuid="0bcb6d96-55a2-4f2e-a265-4413bf5c3c87"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicle_info_supp_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="652" y="3" width="100" height="20" uuid="6cad89ad-3752-40f7-acd1-4480e57ea4e3"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicle_info_address}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="10" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="10" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField pattern="#,##0.00">
+				<reportElement x="652" y="0" width="100" height="20" forecolor="#CC0000" uuid="19437de9-eaf1-4143-b7dd-41bdde0c18a5"/>
+				<textFieldExpression><![CDATA[$V{vehicle_info_amount_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="552" y="0" width="100" height="20" uuid="f76e8b72-9a27-48aa-9585-74278d03f13e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[GRAND TOTAL:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
